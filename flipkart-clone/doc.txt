@@ -1,0 +1,11 @@
+redirect in same page 
+1. 
+$_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
+
+2.
+$redirect_url = $_SESSION['redirect_url'];
+2.some time 
+$redirect_url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : "/"
+
+3.
+header("location: ".$redirect_url);
