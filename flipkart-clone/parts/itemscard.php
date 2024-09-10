@@ -56,9 +56,9 @@
             if (isset($items[1])) {
                 $item = $items[1];
                 echo '
-                <div class="card border-end-0 border-start-0 border-top-0 rounded-0" style="width: 100%; height: 50%;">
-                    <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top" style="height: 60%; object-fit: cover;" alt="' . $item["item_name"] . '">
-                    <div class="card-body text-center px-0" style="height: 40%;">
+                <div class="card border-end-0 border-start-0 align-content-center border-top-0 rounded-0" style="width: 100%; height: 50%;">
+                    <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top" style="height: 65%; object-fit:cover;" alt=""' . $item["item_name"] . '">
+                    <div class="card-body text-center px-0" style="height: 35%;">
                         <h6 class="card-title">' . $item["item_name"] . '</h6>
                         <p class="card-text my-0">
                             <span class="text-decoration-line-through my-0">' . number_format($item["item_noprice"]) . ' </span>
@@ -76,7 +76,7 @@
             if (isset($items[2])) {
                 $item = $items[2];
                 echo '
-                <div class="card border-end-0 border-start-0 border-top-0 rounded-0" style="width: 100%; height: 50%;">
+                <div class="card border-end-0 border-start-0 border-top-0 align-content-center rounded-0" style="width: 100%; height: 50%;">
                     <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top" style="height: 60%; object-fit: cover;" alt="' . $item["item_name"] . '">
                     <div class="card-body text-center px-0" style="height: 40%;">
                         <h6 class="card-title">' . $item["item_name"] . '</h6>
