@@ -2,7 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-include(__DIR__ . '/../../partials/dbconnect.php');
+require(__DIR__ ."/dbconnect.php");
 $method = $_SERVER['REQUEST_METHOD'];
 if ($method == "POST") {
     if (isset($_POST['email'], $_POST['password'])) {

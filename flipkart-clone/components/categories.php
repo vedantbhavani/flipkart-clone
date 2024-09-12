@@ -1,4 +1,4 @@
-<div class="bg-body row mx-0 px-0">
+<div class="bg-body row mx-0 px-0 ">
 <?php
 $sql = "select * from `categories`";
 $result = mysqli_query($conn, $sql);

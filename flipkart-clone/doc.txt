@@ -9,3 +9,33 @@ $redirect_url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : "/"
 
 3.
 header("location: ".$redirect_url);
+
+this is index part of body
+
+
+<div class="mx-3" style="margin-top:6%;">
+        <?php
+        include("./components/categories.php") ?>
+        <div class="my-3 ">
+            <?php include("./parts/cards.php"); ?>
+        </div>
+        <div class="my-3 d-flex">
+            <?php
+            $_session['suggest'] = "Suggested for You";
+            $_SESSION['cate'] = "Mobile"; 
+            include("./parts/itemscard.php"); 
+            ?>
+            <span class="mx-2">
+            <?php
+            $_SESSION['cate'] = "Grocery"; 
+            $_session['suggest'] = "Top Selection";
+            include("./parts/itemscard.php"); 
+            ?>
+            </span>
+            <?php
+            $_SESSION['cate'] = "Fashion"; 
+            $_session['suggest'] = "Recommended Items";
+            include("./parts/itemscard.php"); 
+            ?>
+        </div>
+    </div>

@@ -32,22 +32,22 @@
             if (isset($items[0])) {
                 $item = $items[0];
                 echo '
-                <div class="left border-end align-content-center" style="height:100%; width: 55%;">
-                    <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top object-fit-cover d-block mx-auto" style="height: 50%; width:80%; transition: transform 0.3s ease;"
-                    onmouseover="this.style.transform=\'scale(1.1)\';" 
+                <a href="./components/inneritem.php" class="text-decoration-none border-end align-content-center" style="height:100%; width: 55%;">
+                    <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top object-fit-cover d-block mx-auto" style="height: 50%; width:95%; transition: transform 0.3s ease;"
+                    onmouseover="this.style.transform=\'scale(1.05)\';" 
                     onmouseout="this.style.transform=\'scale(1)\';" 
                     alt="' . $item["item_name"] . '">
                     <div class="card-details mt-3" style="height: 10%;">
-                        <p class="card-text text-center longlength my-0">' . $item["item_name"] . '</p>
-                        <p class="card-text text-center longlength mx-0 px-0 my-0">
-                            <span class="text-decoration-line-through">' . number_format($item["item_noprice"]) . ' </span>&nbsp;&#8377;' . number_format($item["item_price"]) . '
+                        <p class="card-text text-center text-dark longlength my-0">' . $item["item_name"] . '</p>
+                        <p class="card-text text-dark text-center longlength mx-0 px-0 my-0">
+                            <del>' . number_format($item["item_noprice"]) . ' </del>&nbsp;&#8377;' . number_format($item["item_price"]) . '
                             <span class="text-success fw-semibold"> ' . $item["item_discount"] . '% off</span>
                         </p>';
                 if ($item["item_emi"] != 0) {
                     echo '<p class="card-text text-center my-0 text-success fw-semibold">No Cost EMI from &#8377;' . $item["item_emi"] . '/month</p>';
                 }
                 echo '</div>
-                </div>';
+                </a>';
             }
         ?>
 
@@ -58,38 +58,37 @@
             if (isset($items[1])) {
                 $item = $items[1];
                 echo '
-                <div class="card border-end-0 border-start-0 align-content-center border-top-0 rounded-0" style="width: 100%; height: 50%;">
-                    <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top mx-auto my-4" style="width: 90%; height: 90%; object-fit:cover; transition: transform 0.3s ease;" 
-                    onmouseover="this.style.transform=\'scale(1.1)\';" 
+                <a href="./components/inneritem.php" class="text-decoration-none card border-end-0 border-start-0 align-content-center border-top-0 rounded-0" style="width: 100%; height: 50%;">
+                    <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top mx-auto my-4" style="width: 94%; height: 90%; object-fit:cover; transition: transform 0.3s ease;" 
+                    onmouseover="this.style.transform=\'scale(1.06)\';" 
                     onmouseout="this.style.transform=\'scale(1)\';" 
                     alt="' . $item["item_name"] . '">
                 
                     <div class="card-body text-center px-0" style="height: 35%;">
                         <h6 class="card-title">' . $item["item_name"] . '</h6>
                         <p class="card-text my-0">
-                            <span class="text-decoration-line-through my-0">' . number_format($item["item_noprice"]) . ' </span>
-                            &#8377;' . number_format($item["item_price"]) . ' 
+                            <del>' . number_format($item["item_noprice"]) . ' </del>&#8377;' . number_format($item["item_price"]) . ' 
                             <span class="text-success fw-semibold my-0"> ' . $item["item_discount"] . '% off</span>
                         </p>';
                 if ($item["item_emi"] != 0) {
                     echo '<p class="card-text text-success fw-semibold">No Cost EMI from &#8377;' . $item["item_emi"] . '/month</p>';
                 }
                 echo '</div>
-                </div>';
+                </a>';
             }
 
             // Right Down (3rd item)
             if (isset($items[2])) {
                 $item = $items[2];
                 echo '
-                <div class="card border-end-0 border-start-0 border-top-0 align-content-center rounded-0" style="width: 100%; height: 50%;">
-                    <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top mx-auto my-4" style="width: 90%; height: 90%; object-fit:cover; transition: transform 0.3s ease;" 
-                    onmouseover="this.style.transform=\'scale(1.1)\';" 
+                <a href="./components/inneritem.php" class="text-decoration-none card border-end-0 border-start-0 border-top-0 align-content-center rounded-0" style="width: 100%; height: 50%;">
+                    <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top mx-auto my-4" style="width: 94%; height: 90%; object-fit:cover; transition: transform 0.3s ease;" 
+                    onmouseover="this.style.transform=\'scale(1.06)\';" 
                     onmouseout="this.style.transform=\'scale(1)\';" 
                     alt="' . $item["item_name"] . '"><div class="card-body text-center px-0" style="height: 35%;">
                         <h6 class="card-title">' . $item["item_name"] . '</h6>
                         <p class="card-text my-0">
-                            <span class="text-decoration-line-through my-0">' . number_format($item["item_noprice"]) . ' </span>
+                            <del>' . number_format($item["item_noprice"]) . ' </del>
                             &#8377;' . number_format($item["item_price"]) . ' 
                             <span class="text-success fw-semibold my-0"> ' . $item["item_discount"] . '% off</span>
                         </p>';
@@ -97,7 +96,7 @@
                     echo '<p class="card-text text-success fw-semibold">No Cost EMI from &#8377;' . $item["item_emi"] . '/month</p>';
                 }
                 echo '</div>
-                </div>';
+                </a>';
             }
         }
             ?>

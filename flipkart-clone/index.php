@@ -11,30 +11,30 @@
 <?php require("./partials/links.php") ?>
 <?php include("./components/navbar.php") ?>
 
-<body class="bg-body-secondary">
-    <div class="mx-3 my-3 ">
+<body class="bg-body-secondary" style="margin-top: 6%;">
+    <div class="mx-3" style="margin-top:6%;">
         <?php
         include("./components/categories.php") ?>
         <div class="my-3 ">
-            <?php include("./parts/cards.php"); ?>
+            <?php include("./components/slider.php"); ?>
         </div>
         <div class="my-3 d-flex">
             <?php
             $_session['suggest'] = "Suggested for You";
-            $_SESSION['cate'] = "Mobile"; 
-            include("./parts/itemscard.php"); 
+            $_SESSION['cate'] = "Mobile";
+            include("./components/itemscard.php");
             ?>
             <span class="mx-2">
-            <?php
-            $_SESSION['cate'] = "Grocery"; 
-            $_session['suggest'] = "Top Selection";
-            include("./parts/itemscard.php"); 
-            ?>
+                <?php
+                $_SESSION['cate'] = "Grocery";
+                $_session['suggest'] = "Top Selection";
+                include("./components/itemscard.php");
+                ?>
             </span>
             <?php
-            $_SESSION['cate'] = "Fashion"; 
+            $_SESSION['cate'] = "Fashion";
             $_session['suggest'] = "Recommended Items";
-            include("./parts/itemscard.php"); 
+            include("./components/itemscard.php");
             ?>
         </div>
     </div>

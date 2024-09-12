@@ -13,9 +13,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && isset($_SES
     $loggedin = false;
 }
 echo'
-<nav class="navbar navbar-expand-lg navbar-tertiary bg-body px-4">
+<nav class="navbar navbar-expand-lg navbar-tertiary bg-body px-4 fixed-top mb-5">
 <div class="container-fluid ">
-<a class="navbar-brand" href="#"><img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_plus-055f80.svg" alt="Nothing"></a>
+<a class="navbar-brand" href="/flipkart-clone/"><img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_plus-055f80.svg" alt="Nothing"></a>
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,7 +30,7 @@ echo'
                     <div class="btn-group">
                     ';
 if (!$loggedin) {
-    echo '<a href="./components/loginsystem/login.php" class="btn btn-body nav-link fw-semibold" type="button">Login</a>';
+    echo '<a href="/flipkart-clone/components/login.php" class="btn btn-body nav-link fw-semibold" type="button">Login</a>';
 }
 if ($loggedin) {
     echo '<a class="btn btn-body nav-link dropdown-toggle-split fw-semibold" data-bs-toggle="dropdown" type="button">' . $username . '</a>';
@@ -62,7 +62,7 @@ if ($loggedin) {
         <li><a class="dropdown-item" href="#">Gift Cards</a></li>
         <li><a class="dropdown-item" href="#">Notification</a></li>
         <li><a class="dropdown-item" href="./components/itemsystem/item.php">Item add</a></li>
-        <li><a class="dropdown-item" href="./components/loginsystem/handlelogout.php">Logout</a></li>
+        <li><a class="dropdown-item" href="./partials/handlelogout.php">Logout</a></li>
         ';
     }
     // <li><a class="dropdown-item" data-bs-toggle="modal" type="button" data-bs-target="#addcategory">Add Category</a></li>
@@ -79,5 +79,7 @@ echo '</ul>
         </div>
         </div>
         </nav>';
-include(__DIR__ ."/loginsystem/handlelogin.php");
-include(__DIR__ ."/addCategory.php");
+
+include(__DIR__ . '/../partials/handlelogin.php');
+include(__DIR__ . '/addCategory.php');
+        

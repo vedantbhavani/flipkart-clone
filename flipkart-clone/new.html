@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Selector</title>
+</head>
+
+<body>
+
+    <h3>Select Location</h3>
+
+    <!-- Country Dropdown -->
+    <label for="country">Country:</label>
+    <select id="country" onchange="populate('state', this.value)">
+        <option value="">Select Country</option>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+    </select>
+
+    <!-- State Dropdown -->
+    <label for="state">State:</label>
+    <select id="state" onchange="populate('district', this.value)">
+        <option value="">Select State</option>
+    </select>
+
+    <!-- District Dropdown -->
+    <label for="district">District:</label>
+    <select id="district" onchange="populate('taluka', this.value)">
+        <option value="">Select District</option>
+    </select>
+
+    <!-- Taluka Dropdown -->
+    <label for="taluka">Taluka:</label>
+    <select id="taluka">
+        <option value="">Select Taluka</option>
+    </select>
+
+    <script>
+        const data = {
+            "India": {
+                "Gujarat": {
+                    "Ahmedabad": ["Daskroi", "Sanand"],
+                    "Surat": ["Olpad", "Kamrej"]
+                },
+                "Maharashtra": {
+                    "Mumbai": ["Andheri", "Dadar"],
+                    "Pune": ["Shirur", "Mulshi"]
+                }
+            },
+            "USA": {
+                "California": {
+                    "Los Angeles": ["Hollywood", "Santa Monica"],
+                    "San Francisco": ["Mission", "Castro"]
+                },
+                "New York": {
+                    "Manhattan": ["Harlem", "Chelsea"],
+                    "Brooklyn": ["Williamsburg", "Bushwick"]
+                }
+            }
+        };
+
+        function populate(target, selectedValue) {
+    const nextSelect = document.getElementById(target);
+    nextSelect.innerHTML = '<option value="">Select ' + target.charAt(0).toUpperCase() + target.slice(1) + '</option>';
+    let values = [];
+
+    if (target === 'state') {
+        // Reset district and taluka when country is changed
+        document.getElementById('district').innerHTML = '<option value="">Select District</option>';
+        document.getElementById('taluka').innerHTML = '<option value="">Select Taluka</option>';
+        values = selectedValue ? Object.keys(data[selectedValue]) : [];
+    } else if (target === 'district') {
+        // Reset taluka when state is changed
+        document.getElementById('taluka').innerHTML = '<option value="">Select Taluka</option>';
+        const country = document.getElementById('country').value;
+        values = selectedValue ? Object.keys(data[country][selectedValue]) : [];
+    } else if (target === 'taluka') {
+        const country = document.getElementById('country').value;
+        const state = document.getElementById('state').value;
+        values = selectedValue ? data[country][state][selectedValue] : [];
+    }
+
+    values.forEach(val => {
+        const option = document.createElement('option');
+        option.value = val;
+        option.text = val;
+        nextSelect.add(option);
+    });
+}
+
+    </script>
+
+</body>
+
+</html>

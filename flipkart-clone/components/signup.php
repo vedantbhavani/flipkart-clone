@@ -7,8 +7,8 @@
     <title>Flipkart-Clone</title>
 </head>
 <?php 
-require(__DIR__ . '/../../partials/links.php'); 
-include(__DIR__ . '/lsnavbar.php');
+require('../partials/links.php'); 
+include('./lsnavbar.php');
 ?>
 
 <body class="bg-body-secondary">
@@ -16,7 +16,7 @@ include(__DIR__ . '/lsnavbar.php');
         <div class="container w-50 my-5">
             <h3 class="text-center">Signup page</h3>
             <hr>
-            <form action="handlesignup.php" method="post">
+            <form action="../partials/handlesignup.php" method="post">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" class="form-control" name="username" id="username" required>
