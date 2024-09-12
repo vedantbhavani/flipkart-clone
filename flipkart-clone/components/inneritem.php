@@ -20,7 +20,7 @@
 <body class="bg-white mx-4" style="margin-top: 6%;"></body>
 <div class="d-flex bg-white" style="font-family:open sans;">
 
-    <div class="sticky-top overflow-hidden " style="width: 40vw; height: 90vh; top: 11%;">
+    <div class="sticky-top overflow-hidden " style="width: 55vw; height: 90vh; top: 11%;">
         <div class="align-items-center justify-content-center bg-light" style="height: 80%;">
             <!-- Small image -->
             <img src="../uploaded_images/mimobile.jpg"
@@ -34,7 +34,7 @@
         <button class="btn btn-danger px-5 my-3 py-3" style="width: 49%;">BUY NOW</button>
     </div>
 
-    <div id="large-image" class="bg-light flex-grow-1 d-none px-4" style="width:74.5vw; height: 90vh; position: relative;">
+    <div id="large-image" class="bg-light flex-grow-1 d-none px-4" style="width:96.5vw; height: 90vh; position: relative;">
         <div id="zoomed-image" style="width: 100%; height: 100%; background-size: 350%; background-repeat: no-repeat;"></div>
     </div>
 
@@ -83,11 +83,11 @@
             <div class="reviews border-top p-3">
                 <p><span class="text-bg-success w-100 d-inline fw-semibold px-1 rounded-1">4.5 ☆</span> <span
                         class="fw-semibold">&nbsp;&nbsp;&nbsp;Excellent</span></p>
-                <pre class="" style="font-family:open sans;">Its a very light weight and Slim phone with 5500 Mah battery
-                    Awesome design
-                    Display is very bright
-                    Camera is good in the price range
-                    Charging speed is also superb and battery performance is awesome lasts easily a day.</pre>
+                <pre class="text-dark fw-medium" style="font-family:open sans;">Its a very light weight and Slim phone with 5500 Mah battery
+Awesome design
+Display is very bright
+Camera is good in the price range
+Charging speed is also superb and battery performance is awesome lasts easily a day.</pre>
                 <small class="text-body-secondary fw-medium my-0">Vedant patel ✔ <small class="fw-medium">Certified
                         Buyer, Gurugram 1 month ago</small></small>
             </div>
@@ -106,8 +106,20 @@
         <div class="question-part border my-4">
             <h3 class="fw-semibold p-3">Specifications</h3>
             <div class="reviews border-top p-3 d-flex">
-                <small class="text-body-secondary d-block  me-25 w-25 h-100">In The Box</small>
-                <small class="h-100">Handset is the best change of the world and i want to run this paper on the world in my mobile and i want to run this mobile in darya </small>
+                <small class="text-body-secondary d-block w-25 h-100 ms-2">In The Box</small>
+                <small class="h-100 w-75">Handset is the best change of the world and i want ot alkdsjflka sdkljf lkajlsd fjlka sdjfkkaljksldjlf kljsd fjkl ajsdkl jflk asdkfjlkds fdsljf lk dsjflkds jfdlksf jdlksf jlksdjflkds flkdsjklfdslkfjlk </small>
+            </div>
+            <div class="reviews border-top p-3 d-flex">
+                <small class="text-body-secondary d-block w-25 h-100 ms-2">Modal Name</small>
+                <small class="h-100 w-75">Xiomi note 4</small>
+            </div>
+            <div class="reviews border-top p-3 d-flex">
+                <small class="text-body-secondary d-block w-25 h-100 ms-2">Modal Name is ready and i want to </small>
+                <small class="h-100 w-75">Xiomi note 4</small>
+            </div>
+            <div class="reviews border-top p-3 d-flex">
+                <small class="text-body-secondary d-block w-25 h-100 ms-2">Modal Name</small>
+                <small class="h-100 w-75">Xiomi note 4</small>
             </div>
         </div>
 

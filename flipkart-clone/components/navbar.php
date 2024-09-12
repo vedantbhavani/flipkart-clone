@@ -62,7 +62,7 @@ if ($loggedin) {
         <li><a class="dropdown-item" href="#">Gift Cards</a></li>
         <li><a class="dropdown-item" href="#">Notification</a></li>
         <li><a class="dropdown-item" href="./components/itemsystem/item.php">Item add</a></li>
-        <li><a class="dropdown-item" href="./partials/handlelogout.php">Logout</a></li>
+        <li><a class="dropdown-item" href="/flipkart-clone/partials/handlelogout.php">Logout</a></li>
         ';
     }
     // <li><a class="dropdown-item" data-bs-toggle="modal" type="button" data-bs-target="#addcategory">Add Category</a></li>
