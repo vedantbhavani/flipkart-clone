@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-tertiary bg-primary">
-    <div class="container-fluid container">
-        <a class="navbar-brand text-light" href="#"><img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_plus-055f80.svg" alt="Nothing"></a>
+    <div class="container-fluid mx-5">
+        <a class="navbar-brand text-light" href="/flipkart-clone/"><img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_plus-055f80.svg" alt="Nothing"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
