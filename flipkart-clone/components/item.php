@@ -17,7 +17,7 @@
         <div class="container w-50 my-5">
             <h3 class="text-center">Add Items</h3>
             <hr>
-            <form action="handleitem.php" method="post" enctype="multipart/form-data">
+            <form action="../partials/handleitem.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="item_name" class="form-label">Name</label>
                     <input type="text" class="form-control" name="item_name" id="item_name" aria-describedby="emailHelp">

@@ -14,7 +14,7 @@ include(__DIR__ . "/lsnavbar.php")
 <body class="bg-body-secondary">
     <div class="mx-3 my-3">
         <div class="container w-50 my-5">
-            <h3 class="text-center">Add Items</h3>
+            <h3 class="text-center">Add Item-Details</h3>
             <hr>
             <form class="needs-validation" action="../partials/handleitemdetails.php" method="post" novalidate>
                 <div class="fix-part g-3 row">
@@ -31,6 +31,12 @@ include(__DIR__ . "/lsnavbar.php")
                             <option value="Travel">Travel</option>
                             <option value="Beauty Toys and more">Beauty Toys and more</option>
                             <option value="Two Wheelers">Two Wheelers</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <label for="items" class="form-label">Select Item</label>
+                        <select name="item_name" class="form-control" id="items">
+                            <option value="" disabled selected>Select Item</option>
                         </select>
                     </div>
                     <div class="col-md-12">
@@ -196,7 +202,7 @@ include(__DIR__ . "/lsnavbar.php")
                         <select class="form-control" id="containerType" name="item_containertype">
                             <option value="" disabled selected>Select Container Type</option>
                             <option value="packet">Packet</option>
-                            <option value="bottle">Bottle</option>
+                            <option value=" ">Bottle</option>
                         </select>
                     </div>
 
@@ -221,12 +227,7 @@ include(__DIR__ . "/lsnavbar.php")
 
                     <div class="col-md-6">
                         <label class="form-label" for="manufacturedBy">Manufactured By</label>
-                        <input class="form-control" type="text" id="manufacturedBy" name="manufacturedBy">
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label" for="netQuantity">Net Quantity</label>
-                        <input class="form-control" type="text" id="netQuantity" name="item_netquantity">
+                        <input class="form-control" type="text" id="manufacturedBy" name="item_manufactured">
                     </div>
                 </div>
 
@@ -248,19 +249,52 @@ include(__DIR__ . "/lsnavbar.php")
             </form>
             <script>
                 function toggleFields() {
-                    var category = document.getElementById('category').value;
+                    const selectedCategory = document.getElementById('category').value;
 
-                    document.getElementById('mobileFields').classList.add('d-none');
-                    document.getElementById('groceryFields').classList.add('d-none');
+                    // Get the fields
+                    const mobileFields = document.getElementById('mobileFields');
+                    const groceryFields = document.getElementById('groceryFields');
 
-                    if (category === 'Mobile') {
-                        document.getElementById('mobileFields').classList.remove('d-none');
-                        document.getElementById('mobileFields').classList.add('d-block');
-                    } else if (category === 'Grocery') {
-                        document.getElementById('groceryFields').classList.remove('d-none');
-                        document.getElementById('groceryFields').classList.add('d-block');
+                    // Hide both initially
+                    mobileFields.classList.add('d-none');
+                    groceryFields.classList.add('d-none');
+
+                    // Show relevant fields based on the selected category
+                    if (selectedCategory === 'Mobile') {
+                        mobileFields.classList.remove('d-none');
+                    } else if (selectedCategory === 'Grocery') {
+                        groceryFields.classList.remove('d-none');
                     }
                     console.log("Toggle fields run success");
+
+                    const itemsDropdown = document.getElementById('items');
+                    const category = document.getElementById('category').value;
+
+                    // Clear existing options
+                    itemsDropdown.innerHTML = '<option value="" disabled selected>Select Item</option>';
+
+                    // Define items for each category
+                    const items = {
+                        Mobile: ['Poco', 'Realme', 'Vivo', 'Samsung'],
+                        Grocery: ['Oil', 'Ghee', 'Kaju'],
+                        Fashion: ['T-shirt', 'Jeans', 'Shoes'],
+                        Electronics: ['TV', 'Laptop', 'Headphones'],
+                        'Home and Furniture': ['Sofa', 'Table', 'Chair'],
+                        Appliances: ['Washing Machine', 'Refrigerator', 'Microwave'],
+                        Travel: ['Luggage', 'Backpack'],
+                        'Beauty Toys and more': ['Makeup Kit', 'Toys'],
+                        'Two Wheelers': ['Bike', 'Scooter']
+                    };
+
+                    // Populate items based on selected category
+                    if (items[category]) {
+                        items[category].forEach(item => {
+                            const option = document.createElement('option');
+                            option.value = item;
+                            option.text = item;
+                            itemsDropdown.appendChild(option);
+                        });
+                    }
                 }
                 (() => {
                     'use strict'

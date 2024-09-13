@@ -1,5 +1,6 @@
 <?php
-include(__DIR__ . '/../../partials/dbconnect.php');
+require(__DIR__ ."/dbconnect.php");
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
