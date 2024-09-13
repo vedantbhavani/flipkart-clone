@@ -7,9 +7,9 @@ while($row = mysqli_fetch_assoc($result)){
     $names = $row["cat_name"];
     $id = $row["cat_id"];
     echo '
-    <div class="col text-center pt-2 m-0 p-0 link-offset-10-hover ">
+    <div class="col text-center pt-2 m-0 p-0 ">
         <img src="uploaded_images/'.$images.'" class="card-img-top" style="width: 4vw; height: 8vh;" alt="phone...">
-        <p class="card-title fw-semibold fs-6">'.$names.'</p>
+        <small class="card-title d-block w-100 fw-bold">'.$names.'</small>
     </div>
     ';   
 }

@@ -1,5 +1,5 @@
 <?php
-include(__DIR__ . '/../../partials/dbconnect.php');
+require(__DIR__ ."/dbconnect.php");
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -27,7 +27,7 @@ if ($method == "POST") {
             if (isset($_FILES['item_image'])) {
                 $item_image = $_FILES['item_image']['name'];
                 $tempname = $_FILES['item_image']['tmp_name'];
-                $folder = '../../uploaded_images/' . $item_image;
+                $folder = '../uploaded_images/' . $item_image;
                 if (move_uploaded_file($tempname, $folder)) {
                     $item_image = mysqli_real_escape_string($conn, $item_image);
                     $item_name = mysqli_real_escape_string($conn, $item_name);
