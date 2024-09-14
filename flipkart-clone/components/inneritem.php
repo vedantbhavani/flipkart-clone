@@ -11,40 +11,48 @@
     <?php include(__DIR__ . "/navbar.php") ?>
 </head>
 <?php
+$itemname = mysqli_real_escape_string($conn, $_GET['name']);
+$itemcate = mysqli_real_escape_string($conn, $_GET['category']);
 
+$sql = "SELECT it.*, itd.* 
+        FROM items it
+        INNER JOIN itemdetails itd ON it.item_name = itd.item_name 
+        WHERE it.item_name = '$itemname' AND it.item_category = '$itemcate'";
 
+$result = mysqli_query($conn, $sql);
 
-?>
-
-
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo '
+        
 <body class="bg-white mx-4" style="margin-top: 6%;">
     <div class="d-flex bg-white" style="font-family:open sans;">
-        <div class="sticky-top overflow-hidden " style="width: 55vw; height: 90vh; top: 11%;">
+        <div class="sticky-top overflow-hidden " style="width: 35vw; height: 90vh; top: 11%;">
             <div class="align-items-center justify-content-center bg-light" style="height: 80%;">
                 <!-- Small image -->
-                <img src="../uploaded_images/mimobile.jpg"
+                <img src="../uploaded_images/' . $row['item_image'] . '"
                     class="img-fluid border object-fit-cover w-100 h-100"
                     style="cursor: pointer;"
                     alt="Product Image"
-                    onmousemove="showImage(event, '../uploaded_images/mimobile.jpg')"
+                     onmousemove="showImage(event, \'../uploaded_images/' . $row['item_image'] . '\')" 
                     onmouseout="resetContent()">
             </div>
             <button class="btn btn-warning px-5 me-1 py-3" style="width: 49%;">ADD TO CART</button>
             <button class="btn btn-danger px-5 my-3 py-3" style="width: 49%;">BUY NOW</button>
         </div>
 
-        <div id="large-image" class="bg-light flex-grow-1 d-none px-4" style="width:96.5vw; height: 90vh; position: relative;">
-            <div id="zoomed-image" style="width: 100%; height: 100%; background-size: 350%; background-repeat: no-repeat;"></div>
+        <div id="large-image" class="bg-light flex-grow-1 d-none px-4" style="width:61.8vw; height: 90vh; position: relative;">
+            <div id="zoomed-image" style="width: 100%; height: 100%; background-size: 300%; background-repeat: no-repeat;"></div>
         </div>
         <!-- Right Panel (Scrollable) -->
         <div class="px-4 rightpart flex-grow-1" id="rightpart">
-            <small class="fst-italic text-body-secondary ">Mobile > POCO X6 5G (Mirror Black, 256 GB) (8 GB RAM)
+            <small class="fst-italic text-body-secondary ">' . $row['item_category'] . ' > ' . $row['item_name'] . ' (' . $row['item_color'] . ', ' . $row['item_storage'] . ' GB) (' . $row['item_ram'] . ' GB RAM)
             </small>
-            <h5 class="mt-3">POCO X6 5G (Mirror Black, 256 GB) (8 GB RAM)</h5>
+            <h5 class="mt-3">' . $row['item_name'] . ' (' . $row['item_color'] . ', ' . $row['item_storage'] . ' GB) (' . $row['item_ram'] . ' GB RAM)</h5>
             <p> <span class="text-bg-success w-100 d-inline fw-semibold px-1 rounded-1">4.5 ☆</span><span
                     class="text-body-secondary fw-medium"> 2,984 Ratings & 160 Reviews</span></p>
-            <h5><span class="fs-2 ">₹18,999</span>&nbsp;<small><del>₹24,999</del>&nbsp;&nbsp;<span
-                        class="text-success fw-semibold"> 24% off</span></small></h5>
+            <h5><span class="fs-2 fw-semibold ">₹' . number_format($row['item_price']) . '</span>&nbsp;<small><del>₹' . number_format($row['item_noprice']) . '</del>&nbsp;&nbsp;<span
+                        class="text-success fw-semibold"> ' . $row['item_discount'] . '% off</span></small></h5>
             <p>+ ₹59 Secured Packaging Fee</p>
 
             <p class="fw-semibold mb-2">Available offers</p>
@@ -60,16 +68,16 @@
             <div class="d-flex">
                 <p class="text-body-secondary fw-semibold">Highlights</p>
                 <ul class="text-dark fw-semibold">
-                    <li><small> 8 GB RAM | 256 GB ROM </small></li>
-                    <li><small> 6.67" 1.5K AMOLED Display </small></li>
-                    <li><small> 64MP Triple Camera with OIS </small></li>
-                    <li><small> Corning® Gorilla® Glass Victus® </small></li>
-                    <li><small> 5000 mAh Battery </small></li>
-                    <li><small> Snapdragon 7 Gen 3 Processor </small></li>
+                    <li><small> ' . $row['item_ram'] . ' GB RAM | ' . $row['item_storage'] . ' GB Storage </small></li>
+                    <li><small> ' . $row['item_inch'] . '" ' . $row['item_display'] . ' </small></li>
+                    <li><small> ' . $row['item_backcam'] . ' Camera with OIS </small></li>
+                    <li><small> ' . $row['item_protection'] . ' </small></li>
+                    <li><small> ' . $row['item_battery'] . ' mAh Battery </small></li>
+                    <li><small> ' . $row['item_processor'] . ' </small></li>
                 </ul>
                 <p class="text-body-secondary fw-semibold ms-5" style="width:9vw">Easy Payment Options</p>
                 <ul class="text-dark fw-semibold">
-                    <li><small>No cost EMI starting from ₹4,500/month</small></li>
+                    <li><small>No cost EMI starting from ₹' . number_format($row['item_emi']) . '/month</small></li>
                     <li><small>Cash on Delivery</small></li>
                     <li><small>Net banking & Credit/ Debit/ ATM card</small></li>
                 </ul>
@@ -101,35 +109,71 @@ Charging speed is also superb and battery performance is awesome lasts easily a 
                 </div>
             </div>
 
-            <div class="question-part border my-4">
-                <h3 class="fw-semibold p-3">Specifications</h3>
-                <div class="reviews border-top p-3 d-flex">
-                    <small class="text-body-secondary d-block w-25 h-100 ms-2">In The Box</small>
-                    <small class="h-100 w-75">Handset is the best change of the world and i want ot alkdsjflka sdkljf lkajlsd fjlka sdjfkkaljksldjlf kljsd fjkl ajsdkl jflk asdkfjlkds fdsljf lk dsjflkds jfdlksf jdlksf jlksdjflkds flkdsjklfdslkfjlk </small>
+            <div class="specification-part border my-4">
+                <h3 class="fw-semibold  p-3">Specifications</h3>
+                <h6 class="fw-semibold border-top py-4 px-4">General</h6>
+                <div class="reviews px-3 py-2 d-flex">
+                <small class="text-body-secondary d-block w-25 h-100 ms-2">Model Brand</small>
+                    <small class="h-100 w-75">' . $row['item_brand'] . '</small>
                 </div>
-                <div class="reviews border-top p-3 d-flex">
-                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Modal Name</small>
-                    <small class="h-100 w-75">Xiomi note 4</small>
+                <div class="reviews px-3 py-2 d-flex">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Model Name</small>
+                    <small class="h-100 w-75">' . $row['item_modalname'] . '</small>
                 </div>
-                <div class="reviews border-top p-3 d-flex">
-                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Modal Name is ready and i want to </small>
-                    <small class="h-100 w-75">Xiomi note 4</small>
+                <div class="reviews px-3 py-2 d-flex">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Color</small>
+                    <small class="h-100 w-75">' . $row['item_color'] . '</small>
                 </div>
-                <div class="reviews border-top p-3 d-flex">
-                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Modal Name</small>
-                    <small class="h-100 w-75">Xiomi note 4</small>
+                <div class="reviews px-3 py-2 d-flex">
+                <small class="text-body-secondary d-block w-25 h-100 ms-2">Touchscreen</small>
+                <small class="h-100 w-75">Yes</small>
                 </div>
+                <div class="reviews px-3 py-2 d-flex">
+                <small class="text-body-secondary d-block w-25 h-100 ms-2">SIM Type</small>
+                <small class="h-100 w-75">Dual Sim</small>
+                </div>
+                
+                
+                <h6 class="fw-semibold border-top py-4 px-4">Display Resolution</h6>
+                
+                <div class="reviews px-3 py-2 d-flex">
+                <small class="text-body-secondary d-block w-25 h-100 ms-2">Display Size</small>
+                <small class="h-100 w-75">' . number_format($row['item_inch'] * 2.54, 2) . ' cm (' . $row['item_inch'] . ' inch)</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex">
+                <small class="text-body-secondary d-block w-25 h-100 ms-2">Resolution</small>
+                <small class="h-100 w-75">2400 x 1080 pixels</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex">
+                <small class="text-body-secondary d-block w-25 h-100 ms-2">Resolution Type</small>
+                <small class="h-100 w-75">Full HD+</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex">
+                <small class="text-body-secondary d-block w-25 h-100 ms-2">Display Type</small>
+                <small class="h-100 w-75">' . $row['item_display'] . '</small>
+                </div>
+                
+                
+                <h6 class="fw-semibold border-top py-4 px-4">OS & Processor Features</h6>
+                
+                <div class="reviews px-3 py-2 d-flex">
+                <small class="text-body-secondary d-block w-25 h-100 ms-2">Operating System</small>
+                <small class="h-100 w-75">Android 14</small>
+                </div>
+
             </div>
 
         </div>
     </div>
+    </body>';
+    } ?>
     <script>
         function showImage(event, imagePath) {
-            const zoomedImage = document.getElementById('zoomed-image');
-            const largeImageContainer = document.getElementById('large-image');
+            const zoomedImage = document.getElementById("zoomed-image");
+            const largeImageContainer = document.getElementById("large-image");
 
-            document.getElementById('rightpart').style.display = 'none';
-            largeImageContainer.classList.remove('d-none');
+            document.getElementById("rightpart").style.display = "none";
+            largeImageContainer.classList.remove("d-none");
             zoomedImage.style.backgroundImage = `url(${imagePath})`;
 
             // Get the coordinates of the mouse relative to the small image
@@ -147,10 +191,14 @@ Charging speed is also superb and battery performance is awesome lasts easily a 
 
         function resetContent() {
             // Reset large image and show right content again
-            document.getElementById('rightpart').style.display = 'block';
-            document.getElementById('large-image').classList.add('d-none');
+            document.getElementById("rightpart").style.display = "block";
+            document.getElementById("large-image").classList.add("d-none");
         }
     </script>
-</body>
+<?php
+} else {
+    echo "No items found";
+}
+?>
 
 </html>

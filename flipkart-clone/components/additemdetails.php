@@ -42,27 +42,26 @@ include(__DIR__ . "/lsnavbar.php")
         const items = {
             Mobile: [
                 <?php
-                    $sql = "SELECT item_name FROM items WHERE item_category = 'Mobile'";
-                    $result = mysqli_query($conn, $sql);
-                    $itemNames = [];
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $itemNames[] = "'" . addslashes($row["item_name"]) . "'"; // Escape single quotes if needed
-                    }
-                    echo implode(", ", $itemNames);
-
-                    ?>
+                $sql = "SELECT item_name FROM items WHERE item_category = 'Mobile'";
+                $result = mysqli_query($conn, $sql);
+                $itemNames = [];
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $itemNames[] = "'" . addslashes($row["item_name"]) . "'"; // Escape single quotes if needed
+                }
+                echo implode(", ", $itemNames);
+                ?>
             ],
             Grocery: [
                 <?php
-                    $sql = "SELECT item_name FROM items WHERE item_category = 'Grocery'";
-                    $result = mysqli_query($conn, $sql);
-                    $itemNames = [];
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $itemNames[] = "'" . addslashes($row["item_name"]) . "'"; // Escape single quotes if needed
-                    }
-                    echo implode(", ", $itemNames);
+                $sql = "SELECT item_name FROM items WHERE item_category = 'Grocery'";
+                $result = mysqli_query($conn, $sql);
+                $itemNames = [];
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $itemNames[] = "'" . addslashes($row["item_name"]) . "'"; // Escape single quotes if needed
+                }
+                echo implode(", ", $itemNames);
 
-                    ?>
+                ?>
             ],
             Fashion: ['T-shirt', 'Jeans', 'Shoes'],
             Electronics: ['TV', 'Laptop', 'Headphones'],
@@ -325,19 +324,19 @@ include(__DIR__ . "/lsnavbar.php")
         </div>
     </div>
     <script>
-    (() => {
-        'use strict';
-        const forms = document.querySelectorAll('.needs-validation');
-        Array.from(forms).forEach(form => {
-            form.addEventListener('submit', event => {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
-        });
-    })();
+        (() => {
+            'use strict';
+            const forms = document.querySelectorAll('.needs-validation');
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
     </script>
 </body>
 

@@ -80,12 +80,8 @@ echo '</ul>
         </div>
         </div>
         </nav>';
-if (isset($_SESSION['copy_item']) && $_SESSION['copy_item'] == true) {
-    $myalert = "You have already set this item details";
-    echo '<div class=" alert alert-success alert-dismissible fade show my-0" role="alert">
-        <strong>Success : </strong> ' . $myalert . '.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>';
+if (isset($_SESSION['update_item']) && $_SESSION['update_item'] == true) {
+   include("./components/confirmupdate.php");
 }
 
 include(__DIR__ . '/../partials/handlelogin.php');

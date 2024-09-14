@@ -3,9 +3,10 @@ require(__DIR__ . "/dbconnect.php");
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+$_SESSION['update_item'] = false;
 $method = $_SERVER['REQUEST_METHOD'];
 if ($method == "POST") {
-    if (isset($_POST['item_category'], $_POST['item_brand'], $_POST['item_modalname'], $_POST['item_color'])) {
+    if (isset($_POST['item_category'], $_POST['item_brand'] , $_POST['item_name'], $_POST['item_modalname'], $_POST['item_color'])) {
         $item_category = $_POST['item_category'];
         $item_name = $_POST['item_name'];
         $item_brand = $_POST['item_brand'];
@@ -20,7 +21,7 @@ if ($method == "POST") {
         $ans = mysqli_query($conn, $query);
         $row = mysqli_num_rows($ans);
         if ($row != 0) {
-            require("/flipkart-clone/components/confirmupdate.php");
+            // $_SESSION['update_item'] = true;
             header("Location: /flipkart-clone/");
         } else {
             if ($item_category == "Mobile") {
@@ -52,6 +53,7 @@ if ($method == "POST") {
                 $result = mysqli_query($conn, $sql);
             }
             header("location: /flipkart-clone/");
+
         }
     }
 }
