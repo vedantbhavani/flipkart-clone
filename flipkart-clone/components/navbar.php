@@ -12,7 +12,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && isset($_SES
 } else {
     $loggedin = false;
 }
-echo'
+echo '
 <nav class="navbar navbar-expand-lg navbar-tertiary bg-body px-4 fixed-top mb-5">
 <div class="container-fluid ">
 <a class="navbar-brand" href="/flipkart-clone/"><img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_plus-055f80.svg" alt="Nothing"></a>
@@ -65,8 +65,8 @@ if ($loggedin) {
         <li><a class="dropdown-item" href="/flipkart-clone/components/additemdetails.php">Details add</a></li>
         <li><a class="dropdown-item" href="/flipkart-clone/partials/handlelogout.php">Logout</a></li>
         ';
-    }
-    // <li><a class="dropdown-item" data-bs-toggle="modal" type="button" data-bs-target="#addcategory">Add Category</a></li>
+}
+// <li><a class="dropdown-item" data-bs-toggle="modal" type="button" data-bs-target="#addcategory">Add Category</a></li>
 echo '</ul>
     </div>
     </li>
@@ -80,7 +80,14 @@ echo '</ul>
         </div>
         </div>
         </nav>';
+if (isset($_SESSION['copy_item']) && $_SESSION['copy_item'] == true) {
+    $myalert = "You have already set this item details";
+    echo '<div class=" alert alert-success alert-dismissible fade show my-0" role="alert">
+        <strong>Success : </strong> ' . $myalert . '.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+}
 
 include(__DIR__ . '/../partials/handlelogin.php');
+include(__DIR__ . '/../partials/handleitemdetails.php');
 include(__DIR__ . '/addCategory.php');
-        

@@ -20,7 +20,8 @@ if ($method == "POST") {
         $ans = mysqli_query($conn, $query);
         $row = mysqli_num_rows($ans);
         if ($row != 0) {
-            echo 'You have already set this product';
+            require("/flipkart-clone/components/confirmupdate.php");
+            header("Location: /flipkart-clone/");
         } else {
             if ($item_category == "Mobile") {
                 $item_ram = $_POST['item_ram'];
@@ -34,9 +35,9 @@ if ($method == "POST") {
                 $item_charger = $_POST['item_charger'];
                 $item_processor = $_POST['item_processor'];
 
-                $sql = "INSERT INTO `itemdetails` (`item_name`, `item_brand`, `item_modalname`, `item_color`, `item_width`, `item_height`, `item_depth`, `item_weight`,`item_ram`, `item_storage`, `item_inch`, `item_display`, `item_protection`, `item_backcam`, `item_frontcam`, `item_battery`, `item_charger`, `item_processor`, `item_category`) VALUES ('$item_name', '$item_brand', '$item_modalname', '$item_color', '$item_width', '$item_height', '$item_depth', '$item_weight','$item_ram', '$item_storage', '$item_inch', '$item_display ', '$item_protection', '$item_backcam', '$item_frontcam', '$item_battery', '$item_charger', '$item_processor '$item_category')"; 
+                $sql = "INSERT INTO `itemdetails` (`item_name`, `item_brand`, `item_modalname`, `item_color`, `item_width`, `item_height`, `item_depth`, `item_weight`,`item_ram`, `item_storage`, `item_inch`, `item_display`, `item_protection`, `item_backcam`, `item_frontcam`, `item_battery`, `item_charger`, `item_processor`, `item_category`) VALUES ('$item_name', '$item_brand', '$item_modalname', '$item_color', '$item_width', '$item_height', '$item_depth', '$item_weight','$item_ram', '$item_storage', '$item_inch', '$item_display ', '$item_protection', '$item_backcam', '$item_frontcam', '$item_battery', '$item_charger', '$item_processor', '$item_category')";
 
-                $result = mysqli_query($conn , $sql);
+                $result = mysqli_query($conn, $sql);
             }
             if ($item_catogory == 'Grocery') {
                 $item_quantity = $_POST['item_quantity'];
@@ -48,7 +49,7 @@ if ($method == "POST") {
 
                 $sql = "INSERT INTO `itemdetails` (`item_name`, `item_brand`, `item_modalname`, `item_color`, `item_width`, `item_height`, `item_depth`, `item_weight`, `item_quantity`,'item_containertype`, `item_maximumlife`, `item_organic`, `item_ingrediants`, `item_manufactured`) VALUES ('$item_name', '$item_brand', '$item_modalname', '$item_color', '$item_width', '$item_height', '$item_depth', '$item_weight', '$item_quantity', '$item_containertype', '$item_maximumlife', '$item_organic', '$item_ingrediants', '$item_manufactured');";
 
-                $result = mysqli_query($conn , $sql);
+                $result = mysqli_query($conn, $sql);
             }
             header("location: /flipkart-clone/");
         }

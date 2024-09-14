@@ -7,9 +7,84 @@
     <title>Flipkart-Clone</title>
 </head>
 <?php
+include('../partials/dbconnect.php');
 include('../partials/links.php');
 include(__DIR__ . "/lsnavbar.php")
 ?>
+
+<script>
+    function toggleFields() {
+        const selectedCategory = document.getElementById('category').value;
+
+        // Get the fields
+        const mobileFields = document.getElementById('mobileFields');
+        const groceryFields = document.getElementById('groceryFields');
+
+        // Hide both initially
+        if (mobileFields) mobileFields.classList.add('d-none');
+        if (groceryFields) groceryFields.classList.add('d-none');
+
+        // Show relevant fields based on the selected category
+        if (selectedCategory === 'Mobile' && mobileFields) {
+            mobileFields.classList.remove('d-none');
+        } else if (selectedCategory === 'Grocery' && groceryFields) {
+            groceryFields.classList.remove('d-none');
+        }
+        console.log("Toggle fields run success");
+
+        const itemsDropdown = document.getElementById('items');
+        const category = selectedCategory;
+
+        // Clear existing options
+        itemsDropdown.innerHTML = '<option value="" disabled selected>Select Item</option>';
+
+        // Define items for each category
+        const items = {
+            Mobile: [
+                <?php
+                    $sql = "SELECT item_name FROM items WHERE item_category = 'Mobile'";
+                    $result = mysqli_query($conn, $sql);
+                    $itemNames = [];
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $itemNames[] = "'" . addslashes($row["item_name"]) . "'"; // Escape single quotes if needed
+                    }
+                    echo implode(", ", $itemNames);
+
+                    ?>
+            ],
+            Grocery: [
+                <?php
+                    $sql = "SELECT item_name FROM items WHERE item_category = 'Grocery'";
+                    $result = mysqli_query($conn, $sql);
+                    $itemNames = [];
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $itemNames[] = "'" . addslashes($row["item_name"]) . "'"; // Escape single quotes if needed
+                    }
+                    echo implode(", ", $itemNames);
+
+                    ?>
+            ],
+            Fashion: ['T-shirt', 'Jeans', 'Shoes'],
+            Electronics: ['TV', 'Laptop', 'Headphones'],
+            'Home and Furniture': ['Sofa', 'Table', 'Chair'],
+            Appliances: ['Washing Machine', 'Refrigerator', 'Microwave'],
+            Travel: ['Luggage', 'Backpack'],
+            'Beauty Toys and more': ['Makeup Kit', 'Toys'],
+            'Two Wheelers': ['Bike', 'Scooter']
+        };
+
+        // Populate items based on selected category
+        if (items[category]) {
+            items[category].forEach(item => {
+                const option = document.createElement('option');
+                option.value = item;
+                option.text = item;
+                itemsDropdown.appendChild(option);
+            });
+        }
+    }
+</script>
+
 
 <body class="bg-body-secondary">
     <div class="mx-3 my-3">
@@ -125,7 +200,7 @@ include(__DIR__ . "/lsnavbar.php")
 
                     <div class="col-md-4">
                         <label class="form-label" for="displayInch">Display Size (Inch)</label>
-                        <input class="form-control" type="number" id="displayInch" name="item_inch" step="0.1">
+                        <input class="form-control" type="text" id="displayInch" name="item_inch" step="0.1">
                         <div class="invalid-feedback">
                             fill this field.
                         </div>
@@ -149,7 +224,7 @@ include(__DIR__ . "/lsnavbar.php")
 
                     <div class="col-md-4">
                         <label class="form-label" for="cameraBack">Back Camera (MP)</label>
-                        <input class="form-control" type="number" id="cameraBack" name="item_backcam" step="0.1">
+                        <input class="form-control" type="text" id="cameraBack" name="item_backcam" step="0.1">
                         <div class="invalid-feedback">
                             fill this field.
                         </div>
@@ -157,7 +232,7 @@ include(__DIR__ . "/lsnavbar.php")
 
                     <div class="col-md-4">
                         <label class="form-label" for="cameraFront">Front Camera (MP)</label>
-                        <input class="form-control" type="number" id="cameraFront" name="item_frontcam" step="0.1">
+                        <input class="form-control" type="text" id="cameraFront" name="item_frontcam" step="0.1">
                         <div class="invalid-feedback">
                             fill this field.
                         </div>
@@ -180,7 +255,7 @@ include(__DIR__ . "/lsnavbar.php")
                     </div>
                     <div class="col-md-8">
                         <label class="form-label" for="processor">Processor Name</label>
-                        <input class="form-control" type="number" id="processor" name="item_processor">
+                        <input class="form-control" type="text" id="processor" name="item_processor">
                         <div class="invalid-feedback">
                             fill this field.
                         </div>
@@ -247,71 +322,23 @@ include(__DIR__ . "/lsnavbar.php")
                     <button class="btn btn-primary" type="submit">Submit form</button>
                 </div>
             </form>
-            <script>
-                function toggleFields() {
-                    const selectedCategory = document.getElementById('category').value;
-
-                    // Get the fields
-                    const mobileFields = document.getElementById('mobileFields');
-                    const groceryFields = document.getElementById('groceryFields');
-
-                    // Hide both initially
-                    mobileFields.classList.add('d-none');
-                    groceryFields.classList.add('d-none');
-
-                    // Show relevant fields based on the selected category
-                    if (selectedCategory === 'Mobile') {
-                        mobileFields.classList.remove('d-none');
-                    } else if (selectedCategory === 'Grocery') {
-                        groceryFields.classList.remove('d-none');
-                    }
-                    console.log("Toggle fields run success");
-
-                    const itemsDropdown = document.getElementById('items');
-                    const category = document.getElementById('category').value;
-
-                    // Clear existing options
-                    itemsDropdown.innerHTML = '<option value="" disabled selected>Select Item</option>';
-
-                    // Define items for each category
-                    const items = {
-                        Mobile: ['Poco', 'Realme', 'Vivo', 'Samsung'],
-                        Grocery: ['Oil', 'Ghee', 'Kaju'],
-                        Fashion: ['T-shirt', 'Jeans', 'Shoes'],
-                        Electronics: ['TV', 'Laptop', 'Headphones'],
-                        'Home and Furniture': ['Sofa', 'Table', 'Chair'],
-                        Appliances: ['Washing Machine', 'Refrigerator', 'Microwave'],
-                        Travel: ['Luggage', 'Backpack'],
-                        'Beauty Toys and more': ['Makeup Kit', 'Toys'],
-                        'Two Wheelers': ['Bike', 'Scooter']
-                    };
-
-                    // Populate items based on selected category
-                    if (items[category]) {
-                        items[category].forEach(item => {
-                            const option = document.createElement('option');
-                            option.value = item;
-                            option.text = item;
-                            itemsDropdown.appendChild(option);
-                        });
-                    }
-                }
-                (() => {
-                    'use strict'
-                    const forms = document.querySelectorAll('.needs-validation')
-                    Array.from(forms).forEach(form => {
-                        form.addEventListener('submit', event => {
-                            if (!form.checkValidity()) {
-                                event.preventDefault()
-                                event.stopPropagation()
-                            }
-                            form.classList.add('was-validated')
-                        }, false)
-                    })
-                })()
-            </script>
         </div>
     </div>
+    <script>
+    (() => {
+        'use strict';
+        const forms = document.querySelectorAll('.needs-validation');
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+    </script>
 </body>
 
 </html>

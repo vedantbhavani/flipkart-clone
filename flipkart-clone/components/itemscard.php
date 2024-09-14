@@ -14,7 +14,7 @@
     </div>
 
     <!-- Main Layout -->
-    <div class="card border-end-0 border-bottom-0 border-start-0 d-flex flex-row rounded-0" style="height:100vh; width:fit-content;">
+    <div class="card border-0 border-top d-flex flex-row rounded-0" style="height:100vh; width:fit-content;">
         <?php
         $category = $_SESSION['cate'];
         $sqlquery = "SELECT * FROM items WHERE item_category='$category' ORDER BY RAND() LIMIT 3";
@@ -32,7 +32,7 @@
             if (isset($items[0])) {
                 $item = $items[0];
                 echo '
-                <a href="./components/inneritem.php?category='.$category.' name='.$item["item_name"].'" class="text-decoration-none border-end align-content-center" style="height:100%; width: 55%;">
+                <a href="./components/inneritem.php?category='.$category.'&name='.$item["item_name"].'" class="text-decoration-none border-end align-content-center" style="height:100%; width: 55%;">
                     <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top object-fit-cover d-block mx-auto" style="height: 50%; width:95%; transition: transform 0.3s ease;"
                     onmouseover="this.style.transform=\'scale(1.05)\';" 
                     onmouseout="this.style.transform=\'scale(1)\';" 
@@ -58,7 +58,7 @@
             if (isset($items[1])) {
                 $item = $items[1];
                 echo '
-                <a href="./components/inneritem.php" class="text-decoration-none card border-end-0 border-start-0 align-content-center border-top-0 rounded-0" style="width: 100%; height: 50%;">
+                <a href="./components/inneritem.php" class="text-decoration-none card border-0 border-bottom align-content-center rounded-0" style="width: 100%; height: 50%;">
                     <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top mx-auto my-4" style="width: 94%; height: 90%; object-fit:cover; transition: transform 0.3s ease;" 
                     onmouseover="this.style.transform=\'scale(1.06)\';" 
                     onmouseout="this.style.transform=\'scale(1)\';" 
@@ -81,7 +81,7 @@
             if (isset($items[2])) {
                 $item = $items[2];
                 echo '
-                <a href="./components/inneritem.php" class="text-decoration-none card border-end-0 border-start-0 border-top-0 align-content-center rounded-0" style="width: 100%; height: 50%;">
+                <a href="./components/inneritem.php" class="text-decoration-none card border-0 align-content-center rounded-0" style="width: 100%; height: 50%;">
                     <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top mx-auto my-4" style="width: 94%; height: 90%; object-fit:cover; transition: transform 0.3s ease;" 
                     onmouseover="this.style.transform=\'scale(1.06)\';" 
                     onmouseout="this.style.transform=\'scale(1)\';" 
