@@ -33,7 +33,7 @@
                 $item = $items[0];
                 echo '
                 <a href="./components/inneritem.php?category='.$category.'&name='.$item["item_name"].'" class="text-decoration-none border-end align-content-center" style="height:100%; width: 55%;">
-                    <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top object-fit-cover d-block mx-auto" style="height: 50%; width:95%; transition: transform 0.3s ease;"
+                    <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top object-fit-cover d-block mx-auto w-75" transition: transform 0.3s ease;"
                     onmouseover="this.style.transform=\'scale(1.05)\';" 
                     onmouseout="this.style.transform=\'scale(1)\';" 
                     alt="' . $item["item_name"] . '">

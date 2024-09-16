@@ -23,15 +23,14 @@ $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
-        echo '
-        
-<body class="bg-white mx-4" style="margin-top: 4.9%;">
+        echo '  
+<body class="bg-white mx-4" style="margin-top: 4.5%;">
     <div class="d-flex bg-white" style="font-family:open sans;">
-        <div class="sticky-top overflow-hidden" style="width: 35vw; height: 92vh; top: 11vh;">
+        <div class="sticky-top overflow-hidden" style="width: 35vw; height: 90vh; top: 9.5vh;">
             <div class="align-items-center bg-white overflow-y-hidden justify-content-center" style=" height: 80%; ">
                 <!-- Small image -->
                 <img src="../uploaded_images/' . $row['item_image'] . '"
-                    class="img-fluid d-block border mx-auto object-fit-cover"
+                    class="img-fluid d-block mx-auto object-fit-cover"
                     style="cursor: pointer; width: 90%; height: 95%"
                     alt="Product Image"
                      onmousemove="showImage(event, \'../uploaded_images/' . $row['item_image'] . '\')" 
@@ -41,7 +40,7 @@ if (mysqli_num_rows($result) > 0) {
             <button class="btn btn-danger px-5 my-3 py-3" style="width: 49%;">BUY NOW</button>
         </div>
 
-        <div id="large-image" class="bg-white flex-grow-1 d-none px-4" style="width:61.8vw; height: 90vh;">
+        <div id="large-image" class="bg-white flex-grow-1 d-none px-4" style="width:63vw; height: 90vh;">
             <div id="zoomed-image" style="width: 100%; height: 90%; background-size: 150%; background-repeat: no-repeat;"></div>
         </div>
         <!-- Right Panel (Scrollable) -->
