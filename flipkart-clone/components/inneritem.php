@@ -25,10 +25,10 @@ if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         echo '
         
-<body class="bg-white mx-4" style="margin-top: 6%;">
+<body class="bg-white mx-4" style="margin-top: 4.85%;">
     <div class="d-flex bg-white" style="font-family:open sans;">
-        <div class="sticky-top overflow-hidden " style="width: 35vw; height: 90vh; top: 11%;">
-            <div class="align-items-center justify-content-center bg-light" style="height: 80%;">
+        <div class="sticky-top overflow-hidden" style="width: 35vw; height: 90vh; top: 11%;">
+            <div class="align-items-center overflow-y-hidden justify-content-center bg-light" style="height: 80%;">
                 <!-- Small image -->
                 <img src="../uploaded_images/' . $row['item_image'] . '"
                     class="img-fluid border object-fit-cover w-100 h-100"
@@ -42,14 +42,14 @@ if (mysqli_num_rows($result) > 0) {
         </div>
 
         <div id="large-image" class="bg-light flex-grow-1 d-none px-4" style="width:61.8vw; height: 90vh; position: relative;">
-            <div id="zoomed-image" style="width: 100%; height: 100%; background-size: 300%; background-repeat: no-repeat;"></div>
+            <div id="zoomed-image" style="width: 100%; height: 90%; background-size: 250%; background-repeat: no-repeat;"></div>
         </div>
         <!-- Right Panel (Scrollable) -->
         <div class="px-4 rightpart flex-grow-1" id="rightpart" style="width:61.8vw;">
             <small class="fst-italic text-body-secondary ">' . $row['item_category'] . ' > ' . $row['item_name'] . ' (' . $row['item_color'] . ', ' . $row['item_storage'] . ' GB) (' . $row['item_ram'] . ' GB RAM)
             </small>
             <h5 class="mt-3">' . $row['item_name'] . ' (' . $row['item_color'] . ', ' . $row['item_storage'] . ' GB) (' . $row['item_ram'] . ' GB RAM)</h5>
-            <p> <span class="text-bg-success w-100 d-inline fw-semibold px-1 rounded-1">4.5 ☆</span><span
+            <p> <span class="badge bg-success me-2 ">4.5 ★</span><span
                     class="text-body-secondary fw-medium"> 2,984 Ratings & 160 Reviews</span></p>
             <h5><span class="fs-2 fw-semibold ">₹' . number_format($row['item_price']) . '</span>&nbsp;<small><del>₹' . number_format($row['item_noprice']) . '</del>&nbsp;&nbsp;<span
                         class="text-success fw-semibold"> ' . $row['item_discount'] . '% off</span></small></h5>
@@ -69,7 +69,7 @@ if (mysqli_num_rows($result) > 0) {
                 <p class="text-body-secondary fw-semibold">Highlights</p>
                 <ul class="text-dark fw-semibold">
                     <li><small> ' . $row['item_ram'] . ' GB RAM | ' . $row['item_storage'] . ' GB Storage </small></li>
-                    <li><small> ' . $row['item_inch'] . '" ' . $row['item_display'] . ' </small></li>
+                    <li><small> ' . $row['item_inch'] . '" ' . $row['item_display'] . ' Display</small></li>
                     <li><small> ' . $row['item_backcam'] . ' Camera with OIS </small></li>
                     <li><small> ' . $row['item_protection'] . ' </small></li>
                     <li><small> ' . $row['item_battery'] . ' mAh Battery </small></li>

@@ -34,7 +34,7 @@ if ($method == "POST") {
                     $sql = "INSERT INTO items (item_category, item_name, item_noprice, item_price, item_image, item_discount, item_emi) VALUES ('$item_category', '$item_name', '$item_noprice', '$item_price', '$item_image', '$item_discount', '$item_emi')";
                     $result = mysqli_query($conn, $sql);
                     $_SESSION['item_added'] = true;
-                    header("location: /flipkart-clone/");
+                    header("location: /flipkart-clone/components/additemdetails.php");
                 }
                 echo "image not uploaded";
             }

@@ -21,15 +21,15 @@ echo '
 <li class="nav-item dropdown">
 </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2 bg-primary-subtle " style="width: 50vw;" type="search" placeholder="Search" aria-label="Search">
-            </form>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent2">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <div class="btn-group">
-                    ';
+        <form class="d-flex" action="./components/handlesearch.php" method="get" role="search">
+            <input class="form-control me-2 bg-primary-subtle " style="width: 50vw;" name="search" type="search" placeholder="Search" aria-label="Search">
+        </form>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+        <div class="btn-group">
+        ';
 if (!$loggedin) {
     echo '<a href="/flipkart-clone/components/login.php" class="btn btn-body nav-link fw-semibold" type="button">Login</a>';
 }
