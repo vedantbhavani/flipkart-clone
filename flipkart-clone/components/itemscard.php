@@ -59,7 +59,7 @@
                 $item = $items[1];
                 echo '
                 <a href="./components/inneritem.php?category='.$category.'&name='.$item["item_name"].'" class="text-decoration-none card border-0 border-bottom align-content-center rounded-0" style="width: 100%; height: 50%;">
-                    <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top mx-auto my-4" style="width: 94%; height: 90%; object-fit:cover; transition: transform 0.3s ease;" 
+                    <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top mx-auto my-4" style="width: 100%; height: 100%; object-fit:cover; transition: transform 0.3s ease;" 
                     onmouseover="this.style.transform=\'scale(1.06)\';" 
                     onmouseout="this.style.transform=\'scale(1)\';" 
                     alt="' . $item["item_name"] . '">

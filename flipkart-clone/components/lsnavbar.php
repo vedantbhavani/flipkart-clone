@@ -1,12 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-tertiary bg-primary">
-    <div class="container-fluid mx-5">
-        <a class="navbar-brand text-light" href="/flipkart-clone/"><img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_plus-055f80.svg" alt="Nothing"></a>
+<nav class="navbar p-0 navbar-expand-lg navbar-tertiary bg-primary">
+    <div class="container-fluid " style="margin-left: 100px">
+        <a class="navbar-brand text-light" href="/flipkart-clone/"><img src="../us_images/flipkart-img.png" style="width: 60px;" alt="Nothing"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2 bg-primary-subtle " style="width: 50vw;" type="search" placeholder="Search" aria-label="Search">
+        <form class="d-flex my-auto" action="./handlesearch.php" method="get" role="search">
+                <input class="form-control me-2 bg-primary-subtle" name="search" style="width: 50vw;" type="search" placeholder="Search" aria-label="Search">
             </form>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
