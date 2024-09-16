@@ -12,7 +12,7 @@
 <?php include("./components/navbar.php") ?>
 
 <body class="bg-body-secondary" style="margin-top: 6%;">
-    <div class="mx-3" style="margin-top:6%;">
+    <div class="mx-3">
         <?php
         include("./components/categories.php") ?>
         <div class="my-3 ">
@@ -20,8 +20,8 @@
         </div>
         <div class="my-3 d-flex">
             <?php
-            $_session['suggest'] = "Suggested for You";
             $_SESSION['cate'] = "Mobile";
+            $_session['suggest'] = "Suggested for You";
             include("./components/itemscard.php");
             ?>
             <span class="mx-2">
@@ -36,6 +36,7 @@
             $_session['suggest'] = "Recommended Items";
             include("./components/itemscard.php");
             ?>
+
         </div>
     </div>
 

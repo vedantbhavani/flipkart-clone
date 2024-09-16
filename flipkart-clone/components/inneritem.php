@@ -45,7 +45,7 @@ if (mysqli_num_rows($result) > 0) {
             <div id="zoomed-image" style="width: 100%; height: 100%; background-size: 300%; background-repeat: no-repeat;"></div>
         </div>
         <!-- Right Panel (Scrollable) -->
-        <div class="px-4 rightpart flex-grow-1" id="rightpart">
+        <div class="px-4 rightpart flex-grow-1" id="rightpart" style="width:61.8vw;">
             <small class="fst-italic text-body-secondary ">' . $row['item_category'] . ' > ' . $row['item_name'] . ' (' . $row['item_color'] . ', ' . $row['item_storage'] . ' GB) (' . $row['item_ram'] . ' GB RAM)
             </small>
             <h5 class="mt-3">' . $row['item_name'] . ' (' . $row['item_color'] . ', ' . $row['item_storage'] . ' GB) (' . $row['item_ram'] . ' GB RAM)</h5>
@@ -111,58 +111,184 @@ Charging speed is also superb and battery performance is awesome lasts easily a 
 
             <div class="specification-part border my-4">
                 <h3 class="fw-semibold  p-3">Specifications</h3>
-                <h6 class="fw-semibold border-top py-4 px-4">General</h6>
-                <div class="reviews px-3 py-2 d-flex">
+
+                <h5 class="fw-semibold border-top py-4 px-4">General</h5>
+
+                <div class="reviews px-3 py-2 d-flex gap-2">
                 <small class="text-body-secondary d-block w-25 h-100 ms-2">Model Brand</small>
                     <small class="h-100 w-75">' . $row['item_brand'] . '</small>
                 </div>
-                <div class="reviews px-3 py-2 d-flex">
+                <div class="reviews px-3 py-2 d-flex gap-2">
                     <small class="text-body-secondary d-block w-25 h-100 ms-2">Model Name</small>
                     <small class="h-100 w-75">' . $row['item_modalname'] . '</small>
                 </div>
-                <div class="reviews px-3 py-2 d-flex">
+                <div class="reviews px-3 py-2 d-flex gap-2">
                     <small class="text-body-secondary d-block w-25 h-100 ms-2">Color</small>
                     <small class="h-100 w-75">' . $row['item_color'] . '</small>
                 </div>
-                <div class="reviews px-3 py-2 d-flex">
-                <small class="text-body-secondary d-block w-25 h-100 ms-2">Touchscreen</small>
-                <small class="h-100 w-75">Yes</small>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Touchscreen</small>
+                    <small class="h-100 w-75">Yes</small>
                 </div>
-                <div class="reviews px-3 py-2 d-flex">
-                <small class="text-body-secondary d-block w-25 h-100 ms-2">SIM Type</small>
-                <small class="h-100 w-75">Dual Sim</small>
-                </div>
-                
-                
-                <h6 class="fw-semibold border-top py-4 px-4">Display Resolution</h6>
-                
-                <div class="reviews px-3 py-2 d-flex">
-                <small class="text-body-secondary d-block w-25 h-100 ms-2">Display Size</small>
-                <small class="h-100 w-75">' . number_format($row['item_inch'] * 2.54, 2) . ' cm (' . $row['item_inch'] . ' inch)</small>
-                </div>
-                <div class="reviews px-3 py-2 d-flex">
-                <small class="text-body-secondary d-block w-25 h-100 ms-2">Resolution</small>
-                <small class="h-100 w-75">2400 x 1080 pixels</small>
-                </div>
-                <div class="reviews px-3 py-2 d-flex">
-                <small class="text-body-secondary d-block w-25 h-100 ms-2">Resolution Type</small>
-                <small class="h-100 w-75">Full HD+</small>
-                </div>
-                <div class="reviews px-3 py-2 d-flex">
-                <small class="text-body-secondary d-block w-25 h-100 ms-2">Display Type</small>
-                <small class="h-100 w-75">' . $row['item_display'] . '</small>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">SIM Type</small>
+                    <small class="h-100 w-75">Dual Sim</small>
                 </div>
                 
                 
-                <h6 class="fw-semibold border-top py-4 px-4">OS & Processor Features</h6>
+                <h5 class="fw-semibold border-top py-4 px-4">Display Resolution</h5>
                 
-                <div class="reviews px-3 py-2 d-flex">
-                <small class="text-body-secondary d-block w-25 h-100 ms-2">Operating System</small>
-                <small class="h-100 w-75">Android 14</small>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Display Size</small>
+                    <small class="h-100 w-75">' . number_format($row['item_inch'] * 2.54, 2) . ' cm (' . $row['item_inch'] . ' inch)</small>
                 </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Resolution</small>
+                    <small class="h-100 w-75">2400 x 1080 pixels</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Resolution Type</small>
+                    <small class="h-100 w-75">Full HD+</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Display Type</small>
+                    <small class="h-100 w-75">' . $row['item_display'] . '</small>
+                </div>
+                
+                
+                <h5 class="fw-semibold border-top py-4 px-4">OS & Processor Features</h5>
+                
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Operating System</small>
+                    <small class="h-100 w-75">Android 14</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Processor Name</small>
+                    <small class="h-100 w-75">' . $row['item_processor'] . '</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Processor Core</small>
+                    <small class="h-100 w-75">Octa Core</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Operating Frequency</small>
+                    <small class="h-100 w-75">5G: n1/n2/n3/n5/n7/n8/n20/n28/n38/n40/n41/n66/n77/n77 HPUE/n78/n78 HPUE, 4G LTE: B1/B2/B3/B4/B5/B7/B8/B12/B13/B17/B18/B19/B20/B25/B26/B28/B32/B38/B38 HPUE/B39/B40/B41/B41 HPUE/B42/B43/B48/B66, 3G UMTS: B1/B2/B4/B5/B8/B19, 2G GSM: B2/B3/B5/B8</small>
+                </div>
+
+                
+                <h5 class="fw-semibold border-top py-4 px-4">Memory & Storage Features</h5>
+
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Internal Storage</small>
+                    <small class="h-100 w-75">' . $row['item_ram'] . ' GB</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Ram</small>
+                    <small class="h-100 w-75">' . $row['item_storage'] . ' GB</small>
+                </div>
+               
+                
+                <h5 class="fw-semibold border-top py-4 px-4">Camera Features</h5>
+
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Primary Camera Available</small>
+                    <small class="h-100 w-75">Yes</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Primary Camera</small>
+                    <small class="h-100 w-75">' . $row['item_backcam'] . '</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Primary Camera Features</small>
+                    <small class="h-100 w-75">Dual Camera Setup: ' . $row['item_backcam'] . ' Main Camera (1/1.5 inch Optical Format, f/1.8 Aperture, 1.0um Pixel Size (Ultra Pixel Technology for 2.0um), Omni Directional PDAF, Optical Image Stabilization (OIS)) + 13MP Ultrawide Camera, Camera Features: Ultra-Res, Portrait (24mm/35mm/50mm), Pro (W/ Long Exposure), 360 Degree Panorama, Night Vision, Dual Capture, Scan, Spot Color, Auto Smile Capture, Google Lens Integration, Smart Composition, Shot Optimization, Auto Night Vision, Burst Shot, Timer, Assistive Grid, Leveler, Metering Mode, Watermark, RAW Photo Output, QR/Barcode Scanner, HDR, Super Resolution Zoom, Active Photos, Live Filters, Quick Capture (Twist-Twist), Active Photos, Video Features: Timelapse (W/ Hyperlapse), Slow Motion, Portrait Video, Dual Capture Video, Macro, Spot Color, Horizon Lock, Video Stabilization, Video Snapshot, Audio Zoom, External Microphone Support</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Secondary Camera Available</small>
+                    <small class="h-100 w-75">Yes</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Secondary Camera</small>
+                    <small class="h-100 w-75">' . $row['item_frontcam'] . '</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Secondary Camera Features</small>
+                    <small class="h-100 w-75">Front Camera Setup: ' . $row['item_frontcam'] . ' (f/2.4 Aperture, 0.7um Pixel Size (Quad Pixel Technology for 1.4um), Auto Focus, Camera Feature: Pro (W/ Long Exposure), Dual Capture, Spot Color, Auto Smile Capture, Gesture Capture, Auto Night Vision, Timer, Assistive Grid, Leveler, Metering Mode, Watermark, Selfie Photo Mirror, Selfie Animation, Face Beauty, RAW Photo Output, HDR, Active Photos, Live Filters, Quick Capture (Twist-Twist), Quick Capture (Twist-Twist), Video Feature: Dual Capture, Timelapse (W/ Hyperlapse), Portrait, Spot Color, Video Stabilization, Face Beauty, Video Snapshot, Live Filters, External Microphone Support</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Flash</small>
+                    <small class="h-100 w-75">Rear: Single LED Flash</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Full HD Video Recording</small>
+                    <small class="h-100 w-75">Yes</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Dual Camera Lens</small>
+                    <small class="h-100 w-75">Yes</small>
+                </div>
+                
+                
+                <h5 class="fw-semibold border-top py-4 px-4">Connectivity Features</h5>
+                
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Network Type</small>
+                    <small class="h-100 w-75">2G, 3G, 4G, 5G</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Internet Connectivity</small>
+                    <small class="h-100 w-75">Wi-Fi, 3G, 4G, 5G</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">USB Version</small>
+                    <small class="h-100 w-75">Type C Port</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Bluetooth Support</small>
+                    <small class="h-100 w-75">Yes</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Wi-Fi Hotspot </small>
+                    <small class="h-100 w-75">Yes</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">NFC</small>
+                    <small class="h-100 w-75">Yes</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">GPS Support</small>
+                    <small class="h-100 w-75">Yes</small>
+                </div>
+                
+                
+                <h5 class="fw-semibold border-top py-4 px-4">Battery & Power Features</h5>
+                
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Bettery Capacity</small>
+                    <small class="h-100 w-75">' . $row['item_battery'] .' mAh</small>
+                </div>
+                
+                
+                <h5 class="fw-semibold border-top py-4 px-4">Dimensions</h5>
+                
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Width</small>
+                    <small class="h-100 w-75">' . $row['item_width'] .'</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Height</small>
+                    <small class="h-100 w-75">' . $row['item_height'] .'</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Depth</small>
+                    <small class="h-100 w-75">' . $row['item_depth'] .'</small>
+                </div>
+                <div class="reviews px-3 py-2 d-flex gap-2">
+                    <small class="text-body-secondary d-block w-25 h-100 ms-2">Weight</small>
+                    <small class="h-100 w-75">' . $row['item_weight'] .'</small>
+                </div>
+                
 
             </div>
-
         </div>
     </div>
     </body>';

@@ -13,18 +13,19 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && isset($_SES
     $loggedin = false;
 }
 echo '
-<nav class="navbar navbar-expand-lg navbar-tertiary bg-body px-4 fixed-top mb-5">
+<nav class="navbar navbar-expand-lg navbar-tertiary bg-body px-4 fixed-top">
 <div class="container-fluid ">
 <a class="navbar-brand" href="/flipkart-clone/"><img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_plus-055f80.svg" alt="Nothing"></a>
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<span class="navbar-toggler-icon"></span>
+<li class="nav-item dropdown">
+</button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <form class="d-flex" role="search">
                 <input class="form-control me-2 bg-primary-subtle " style="width: 50vw;" type="search" placeholder="Search" aria-label="Search">
             </form>
             </div>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent2">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <div class="btn-group">
@@ -33,10 +34,11 @@ if (!$loggedin) {
     echo '<a href="/flipkart-clone/components/login.php" class="btn btn-body nav-link fw-semibold" type="button">Login</a>';
 }
 if ($loggedin) {
-    echo '<a class="btn btn-body nav-link dropdown-toggle-split fw-semibold" data-bs-toggle="dropdown" type="button">' . $username . '</a>';
+    echo '<a class="btn btn-body nav-link dropdown-toggle-split fw-semibold" data-bs-toggle="dropdown" type="button" aria-haspopup="true">' . $username . '</a>';
 }
 echo '  
-<button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+
+<button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true">
 <span class="visually-hidden fw-semibold">Toggle Dropdown</span>
 </button>
 <ul class="dropdown-menu" >';
@@ -81,7 +83,7 @@ echo '</ul>
         </div>
         </nav>';
 if (isset($_SESSION['update_item']) && $_SESSION['update_item'] == true) {
-   include("./components/confirmupdate.php");
+    include("./components/confirmupdate.php");
 }
 
 include(__DIR__ . '/../partials/handlelogin.php');
