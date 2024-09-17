@@ -293,32 +293,46 @@ Charging speed is also superb and battery performance is awesome lasts easily a 
     </body>';
     } ?>
     <script>
-        function showImage(event, imagePath) {
-            const zoomedImage = document.getElementById("zoomed-image");
-            const largeImageContainer = document.getElementById("large-image");
+        let savedScrollPos = 0;
 
-            document.getElementById("rightpart").style.display = "none";
-            largeImageContainer.classList.remove("d-none");
-            zoomedImage.style.backgroundImage = `url(${imagePath})`;
+function showImage(event, imagePath) {
+    const zoomedImage = document.getElementById("zoomed-image");
+    const largeImageContainer = document.getElementById("large-image");
+    const rightPart = document.getElementById("rightpart");
 
-            // Get the coordinates of the mouse relative to the small image
-            const rect = event.target.getBoundingClientRect();
-            const x = event.clientX - rect.left; // X position within the image
-            const y = event.clientY - rect.top; // Y position within the image
+    // Store the current scroll position
+    savedScrollPos = rightPart.scrollTop;
 
-            // Get the percentage of cursor position within the small image
-            const xPercent = (x / rect.width) * 100;
-            const yPercent = (y / rect.height) * 100;
+    // Hide right part content and show large image
+    rightPart.style.display = "none";
+    largeImageContainer.classList.remove("d-none");
+    zoomedImage.style.backgroundImage = `url(${imagePath})`;
 
-            // Move the background of the large image to correspond with the hover position
-            zoomedImage.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
-        }
+    // Get the coordinates of the mouse relative to the small image
+    const rect = event.target.getBoundingClientRect();
+    const x = event.clientX - rect.left; // X position within the image
+    const y = event.clientY - rect.top; // Y position within the image
 
-        function resetContent() {
-            // Reset large image and show right content again
-            document.getElementById("rightpart").style.display = "block";
-            document.getElementById("large-image").classList.add("d-none");
-        }
+    // Get the percentage of cursor position within the small image
+    const xPercent = (x / rect.width) * 100;
+    const yPercent = (y / rect.height) * 100;
+
+    // Move the background of the large image to correspond with the hover position
+    zoomedImage.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
+}
+
+function resetContent() {
+    const rightPart = document.getElementById("rightpart");
+    const largeImageContainer = document.getElementById("large-image");
+
+    // Show right part content and hide large image
+    rightPart.style.display = "block";
+    largeImageContainer.classList.add("d-none");
+
+    // Restore the previous scroll position
+    rightPart.scrollTop = savedScrollPos;
+}
+
     </script>
 <?php
 } else {

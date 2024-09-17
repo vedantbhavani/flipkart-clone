@@ -1,52 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Card UI</title>
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sort By Slider</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .sort-slider .sort-item {
+      cursor: pointer;
+      font-weight: bold;
+      padding-bottom: 5px; /* Adds some space below the text */
+    }
+  </style>
 </head>
 <body>
-    <div class="container mt-3">
-        <div class="card shadow-sm">
-            <div class="row g-0">
-                <!-- Product Image -->
-                <div class="col-md-4">
-                    <img src="./uploaded_images/Apple-iPhone-15.jpg" class="img-fluid rounded-start h-100 w-100" alt="Motorola Edge 40 Neo">
-                </div>
-                <!-- Product Details -->
-                <div class="col-md-5">
-                    <div class="card-body">
-                        <h5 class="card-title">Motorola Edge 40 Neo (Soothing Sea, 128 GB)</h5>
-                        <div class="d-flex align-items-center mb-2">
-                            <span class="badge bg-success me-2">4.3 ★</span>
-                            <span class="text-muted">56,221 Ratings & 5,880 Reviews</span>
-                        </div>
-                        <ul class=" mb-3">
-                            <li>8 GB RAM | 128 GB ROM</li>
-                            <li>16.64 cm (6.55 inch) Full HD+ Display</li>
-                            <li>50MP + 13MP | 32MP Front Camera</li>
-                            <li>5000 mAh Battery</li>
-                            <li>Dimensity 7030 Processor</li>
-                            <li>1 Year on Handset and 6 Months on Accessories</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3  bg-white d-flex justify-content-between mt-3">
-                    <div>
-                        <span class="fs-2 fw-semibold ">₹22,500 <img src="./us_images/flipkart-assured.png" class="ms-4" height="20px" alt=""></span>
-                        <span class="d-block"><small class="fs-6 fw-normal text-body-secondary "><del>₹19,999</del>&nbsp;</small><span class="text-success fw-semibold">17% off</span></span>
-                        <small class="d-block">Free delivery by <span class="fw-semibold">19th Sep</span></small>
-                        <small class="text-success d-block fw-semibold">Save extra with combo offers</small>
-                        <small>Upto<span class="fw-semibold">₹17,100</span> Off on Exchange</small>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+<div class="container mt-3">
+  <!-- Horizontal Sort By Slider -->
+  <div class="sort-slider d-flex border-bottom mb-3">
+    <div class="sort-item px-3 border-bottom" data-sort="relevance">Relevance</div>
+    <div class="sort-item px-3 border-bottom" data-sort="priceLowHigh">Price -- Low to High</div>
+    <div class="sort-item px-3 border-bottom" data-sort="priceHighLow">Price -- High to Low</div>
+    <div class="sort-item px-3 border-bottom" data-sort="popularity">Popularity</div>
+    <div class="sort-item px-3 border-bottom" data-sort="newest">Newest First</div>
+  </div>
+
+  <!-- Product Listings -->
+  <div id="product-list">
+    <div class="product border rounded mb-3 p-3" data-price="22999" data-popularity="56221">
+      <h5>Motorola Edge 40 Neo (128 GB)</h5>
+      <p><strong>₹22,999</strong></p>
+      <p>Popularity: 56,221 ratings</p>
     </div>
-    <!-- Bootstrap JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="product border rounded mb-3 p-3" data-price="19999" data-popularity="43212">
+      <h5>Realme GT Master Edition (128 GB)</h5>
+      <p><strong>₹19,999</strong></p>
+      <p>Popularity: 43,212 ratings</p>
+    </div>
+    <div class="product border rounded mb-3 p-3" data-price="24999" data-popularity="62011">
+      <h5>Samsung Galaxy F23 (128 GB)</h5>
+      <p><strong>₹24,999</strong></p>
+      <p>Popularity: 62,011 ratings</p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.querySelectorAll('.sort-item').forEach(item => {
+    item.addEventListener('click', function() {
+      // Remove active class and blue underline from all items
+      document.querySelectorAll('.sort-item').forEach(i => {
+        i.classList.remove('text-primary', 'border-primary');
+      });
+
+      // Add active class and blue underline to the clicked item
+      this.classList.add('text-primary', 'border-primary');
+
+      let sortValue = this.getAttribute('data-sort');
+      let productList = document.getElementById('product-list');
+      let products = Array.from(productList.getElementsByClassName('product'));
+
+      // Sort the products based on the selected sort option
+      products.sort(function (a, b) {
+        if (sortValue === 'priceLowHigh') {
+          return a.getAttribute('data-price') - b.getAttribute('data-price');
+        } else if (sortValue === 'priceHighLow') {
+          return b.getAttribute('data-price') - a.getAttribute('data-price');
+        } else if (sortValue === 'popularity') {
+          return b.getAttribute('data-popularity') - a.getAttribute('data-popularity');
+        } else {
+          return 0; // For relevance or other options
+        }
+      });
+
+      // Re-append the sorted elements to the product list
+      products.forEach(product => productList.appendChild(product));
+    });
+  });
+</script>
+
 </body>
 </html>
