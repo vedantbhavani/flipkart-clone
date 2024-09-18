@@ -6,7 +6,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flipkart-Clone</title>
     <?php include('../partials/links.php'); ?>
     <?php include(__DIR__ . "/navbar.php") ?>
 </head>
@@ -24,9 +23,10 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         echo '  
-<body class="bg-white mx-4" style="margin-top: 4.5%;">
+        <title>' . $row['item_name'] . ' (' . $row['item_color'] . ', ' . $row['item_storage'] . ' GB) (' . $row['item_ram'] . ' GB RAM)</title>
+<body class="bg-white mx-4 position-relative" style="margin-top: 4.5%;">
     <div class="d-flex bg-white" style="font-family:open sans;">
-        <div class="sticky-top overflow-hidden" style="width: 35vw; height: 90vh; top: 9.5vh;">
+        <div class="sticky-top overflow-hidden" style="width: 35vw; height: 90vh; top: 11vh;">
             <div class="align-items-center bg-white overflow-y-hidden justify-content-center" style=" height: 80%; ">
                 <!-- Small image -->
                 <img src="../uploaded_images/' . $row['item_image'] . '"
@@ -40,11 +40,12 @@ if (mysqli_num_rows($result) > 0) {
             <button class="btn btn-danger px-5 my-3 py-3" style="width: 49%;">BUY NOW</button>
         </div>
 
-        <div id="large-image" class="bg-white flex-grow-1 d-none px-4" style="width:63vw; height: 90vh;">
-            <div id="zoomed-image" style="width: 100%; height: 90%; background-size: 150%; background-repeat: no-repeat;"></div>
+        <div>
+        <div id="large-image" class="bg-white flex-grow-1 d-none position-fixed shadow-lg ms-4" style="width:60vw; height: 85vh; top:10vh">
+            <div id="zoomed-image" class="w-100 h-100" style="background-size: 140%; background-repeat: no-repeat;"></div>
         </div>
-        <!-- Right Panel (Scrollable) -->
         <div class="px-4 rightpart flex-grow-1" id="rightpart" style="width:61.8vw;">
+        <!-- Right Panel (Scrollable) -->
             <small class="fst-italic text-body-secondary ">' . $row['item_category'] . ' > ' . $row['item_name'] . ' (' . $row['item_color'] . ', ' . $row['item_storage'] . ' GB) (' . $row['item_ram'] . ' GB RAM)
             </small>
             <h5 class="mt-3">' . $row['item_name'] . ' (' . $row['item_color'] . ', ' . $row['item_storage'] . ' GB) (' . $row['item_ram'] . ' GB RAM)</h5>
@@ -72,7 +73,7 @@ if (mysqli_num_rows($result) > 0) {
                     <li><small> ' . $row['item_backcam'] . ' Camera with OIS </small></li>
                     <li><small> ' . $row['item_protection'] . ' </small></li>
                     <li><small> ' . $row['item_battery'] . ' mAh Battery </small></li>
-                    <li><small> ' . $row['item_processor'] . ' </small></li>
+                    <li><small> ' . $row['item_processor'] . ' Processor </small></li>
                 </ul>
                 <p class="text-body-secondary fw-semibold ms-5" style="width:9vw">Easy Payment Options</p>
                 <ul class="text-dark fw-semibold">
@@ -86,7 +87,7 @@ if (mysqli_num_rows($result) > 0) {
                 <h3 class="fw-semibold p-3 pt-4 pb-0">Ratings & Reviews</h3>
                 <p class="mb-0 mt-3 fw-medium px-3">Overall Rating: 4.2/5 (14,159 Ratings & 1,625 Reviews)</p>
                 <div class="reviews border-top p-3">
-                    <p><span class="text-bg-success w-100 d-inline fw-semibold px-1 rounded-1">4.5 ☆</span> <span
+                    <p><span class="text-bg-success w-100 d-inline fw-semibold px-1 rounded-1">4.5 ★</span> <span
                             class="fw-semibold">&nbsp;&nbsp;&nbsp;Excellent</span></p>
                     <pre class="text-dark fw-medium" style="font-family:open sans;">Its a very light weight and Slim phone with 5500 Mah battery
 Awesome design
@@ -263,7 +264,7 @@ Charging speed is also superb and battery performance is awesome lasts easily a 
                 
                 <div class="reviews px-3 py-2 d-flex gap-2">
                     <small class="text-body-secondary d-block w-25 h-100 ms-2">Bettery Capacity</small>
-                    <small class="h-100 w-75">' . $row['item_battery'] .' mAh</small>
+                    <small class="h-100 w-75">' . $row['item_battery'] . ' mAh</small>
                 </div>
                 
                 
@@ -271,21 +272,21 @@ Charging speed is also superb and battery performance is awesome lasts easily a 
                 
                 <div class="reviews px-3 py-2 d-flex gap-2">
                     <small class="text-body-secondary d-block w-25 h-100 ms-2">Width</small>
-                    <small class="h-100 w-75">' . $row['item_width'] .'</small>
+                    <small class="h-100 w-75">' . $row['item_width'] . '</small>
                 </div>
                 <div class="reviews px-3 py-2 d-flex gap-2">
                     <small class="text-body-secondary d-block w-25 h-100 ms-2">Height</small>
-                    <small class="h-100 w-75">' . $row['item_height'] .'</small>
+                    <small class="h-100 w-75">' . $row['item_height'] . '</small>
                 </div>
                 <div class="reviews px-3 py-2 d-flex gap-2">
                     <small class="text-body-secondary d-block w-25 h-100 ms-2">Depth</small>
-                    <small class="h-100 w-75">' . $row['item_depth'] .'</small>
+                    <small class="h-100 w-75">' . $row['item_depth'] . '</small>
                 </div>
                 <div class="reviews px-3 py-2 d-flex gap-2">
                     <small class="text-body-secondary d-block w-25 h-100 ms-2">Weight</small>
-                    <small class="h-100 w-75">' . $row['item_weight'] .'</small>
+                    <small class="h-100 w-75">' . $row['item_weight'] . '</small>
                 </div>
-                
+                </div>
 
             </div>
         </div>
@@ -295,44 +296,27 @@ Charging speed is also superb and battery performance is awesome lasts easily a 
     <script>
         let savedScrollPos = 0;
 
-function showImage(event, imagePath) {
-    const zoomedImage = document.getElementById("zoomed-image");
-    const largeImageContainer = document.getElementById("large-image");
-    const rightPart = document.getElementById("rightpart");
+        function showImage(event, imagePath) {
+            const zoomedImage = document.getElementById("zoomed-image");
+            const largeImageContainer = document.getElementById("large-image");
 
-    // Store the current scroll position
-    savedScrollPos = rightPart.scrollTop;
+            largeImageContainer.classList.remove("d-none");
+            zoomedImage.style.backgroundImage = `url(${imagePath})`;
 
-    // Hide right part content and show large image
-    rightPart.style.display = "none";
-    largeImageContainer.classList.remove("d-none");
-    zoomedImage.style.backgroundImage = `url(${imagePath})`;
+            const rect = event.target.getBoundingClientRect();
+            const x = event.clientX - rect.left; // X position within the image
+            const y = event.clientY - rect.top; // Y position within the image
 
-    // Get the coordinates of the mouse relative to the small image
-    const rect = event.target.getBoundingClientRect();
-    const x = event.clientX - rect.left; // X position within the image
-    const y = event.clientY - rect.top; // Y position within the image
+            const xPercent = (x / rect.width) * 100;
+            const yPercent = (y / rect.height) * 100;
 
-    // Get the percentage of cursor position within the small image
-    const xPercent = (x / rect.width) * 100;
-    const yPercent = (y / rect.height) * 100;
+            zoomedImage.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
+        }
 
-    // Move the background of the large image to correspond with the hover position
-    zoomedImage.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
-}
-
-function resetContent() {
-    const rightPart = document.getElementById("rightpart");
-    const largeImageContainer = document.getElementById("large-image");
-
-    // Show right part content and hide large image
-    rightPart.style.display = "block";
-    largeImageContainer.classList.add("d-none");
-
-    // Restore the previous scroll position
-    rightPart.scrollTop = savedScrollPos;
-}
-
+        function resetContent() {
+            const largeImageContainer = document.getElementById("large-image");
+            largeImageContainer.classList.add("d-none");
+        }
     </script>
 <?php
 } else {
