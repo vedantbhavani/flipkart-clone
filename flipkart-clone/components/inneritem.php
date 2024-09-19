@@ -41,8 +41,8 @@ if (mysqli_num_rows($result) > 0) {
         </div>
 
         <div>
-        <div id="large-image" class="bg-white flex-grow-1 d-none position-fixed shadow-lg ms-4" style="width:60vw; height: 85vh; top:10vh">
-            <div id="zoomed-image" class="w-100 h-100" style="background-size: 140%; background-repeat: no-repeat;"></div>
+        <div id="large-image" class="bg-white flex-grow-1 d-none position-fixed shadow-lg ms-4" style="width:60vw; height: 88vh; top:10vh">
+            <div id="zoomed-image" class="w-100 h-100" style="background-size: 200%; background-repeat: no-repeat;"></div>
         </div>
         <div class="px-4 rightpart flex-grow-1" id="rightpart" style="width:61.8vw;">
         <!-- Right Panel (Scrollable) -->
