@@ -9,6 +9,7 @@ if ($method == "POST") {
     if (isset($_POST['username'], $_POST['email'], $_POST['password'])) {
         $username = $_POST['username'];
         $email = $_POST['email'];
+        $number = $_POST['number'];
         $password = $_POST['password'];
         $cpassword = $_POST['cpassword'];
         $query = "SELECT * FROM user WHERE email = '$email' OR username = '$username'";
@@ -25,7 +26,7 @@ if ($method == "POST") {
         } else {
             if ($password == $cpassword) {
                 $hash = password_hash($password, PASSWORD_DEFAULT);
-                $sql = "INSERT INTO `user` (`username`, `email`, `password`) VALUES ('$username', '$email', '$hash')";
+                $sql = "INSERT INTO `user` (`username`, `email`,`number` , `password`) VALUES ('$username','$email' ,'$number' ,'$hash')";
                 $result = mysqli_query($conn, $sql);
                 if ($result) {
                     $_SESSION['loggedin'] = true;

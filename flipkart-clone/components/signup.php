@@ -27,6 +27,10 @@ include('./lsnavbar.php');
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3">
+                    <label for="number" class="form-label">Number</label>
+                    <input type="number" minlength="10" maxlength="10" class="form-control" name="number" id="number" required>
+                </div>
+                <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" name="password" id="password" required>
                 </div>

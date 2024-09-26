@@ -36,8 +36,10 @@
             $_session['suggest'] = "Recommended Items";
             include("./components/itemscard.php");
             ?>
-
         </div>
+        <?php
+        include("new.php");
+        ?>
     </div>
 </body>
 
