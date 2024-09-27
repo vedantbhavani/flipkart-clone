@@ -13,9 +13,9 @@ if ($checkTable->num_rows > 0) {
 }
 $method = $_SERVER['REQUEST_METHOD'];
 if ($method = 'POST') {
-    if (isset($_POST['category_name'])){
+    if (isset($_POST['category_name'])) {
         $category_name = $_POST['category_name'];
-        if (isset($_FILES['category_img'])) {   
+        if (isset($_FILES['category_img'])) {
             $category_img = $_FILES['category_img']['name'];
             $tempname = $_FILES['category_img']['tmp_name'];
             $folder = 'uploaded_images/' . $category_img;
@@ -32,8 +32,7 @@ if ($method = 'POST') {
                 }
             }
             echo "success";
-        }
-        else{
+        } else {
             die("file not intersetd");
         }
     }

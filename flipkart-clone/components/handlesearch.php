@@ -5,20 +5,22 @@ include(__DIR__ . "/lsnavbar.php");
 ?>
 
 <html>
+
 <head>
-  <style>
-    /* Optional: Add any custom styles you need here */
-    .sort-dropdown {
-        display: inline-block;
-        margin-bottom: 20px;
-    }
-  </style>
+    <style>
+        /* Optional: Add any custom styles you need here */
+        .sort-dropdown {
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
+
 <body>
     <div class="mx-5 mt-3">
 
         <!-- Sorting Dropdown -->
-        
+
 
         <?php
         $query = $_GET['search'] ?? '';
@@ -43,17 +45,17 @@ include(__DIR__ . "/lsnavbar.php");
             } elseif ($sort === 'priceHighLow') {
                 $sql .= " ORDER BY it.item_price DESC";
             } elseif ($sort === 'newest') {
-                $sql .= " ORDER BY it.item_id DESC"; 
+                $sql .= " ORDER BY it.item_id DESC";
             } elseif ($sort === 'popularity') {
                 $sql .= " ORDER BY itd.item_storage DESC";
             } else {
-                $sql .= " ORDER BY it.item_name"; 
+                $sql .= " ORDER BY it.item_name";
             }
 
             $result = mysqli_query($conn, $sql);
             $row = mysqli_num_rows($result);
             echo '
-            <h2 class="mb-4">Showing '.$row.' results for <span class="">" ' . $searchquery . ' "</span></h2>';
+            <h2 class="mb-4">Showing ' . $row . ' results for <span class="">" ' . $searchquery . ' "</span></h2>';
             if ($row > 0) {
                 echo '
                 <div class="d-flex">
@@ -71,7 +73,7 @@ include(__DIR__ . "/lsnavbar.php");
                 </div>
                 ';
             }
-            
+
             while ($row = mysqli_fetch_assoc($result)) {
                 $noResult = false;
                 $category = mysqli_real_escape_string($conn, $row['item_category']);
@@ -151,4 +153,5 @@ include(__DIR__ . "/lsnavbar.php");
         ?>
     </div>
 </body>
+
 </html>

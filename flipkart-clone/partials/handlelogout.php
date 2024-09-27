@@ -7,5 +7,4 @@ $redirect_url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/f
 
 session_unset();
 session_destroy();
-header("location: ".$redirect_url);
-?>
+header("location: " . $redirect_url);

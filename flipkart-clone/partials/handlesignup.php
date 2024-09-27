@@ -1,5 +1,5 @@
 <?php
-require(__DIR__ ."/dbconnect.php");
+require(__DIR__ . "/dbconnect.php");
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -32,15 +32,10 @@ if ($method == "POST") {
                     $_SESSION['loggedin'] = true;
                     header("location: /flipkart-clone/");
                 }
-            }
-            else{
+            } else {
                 $_SESSION['pass_notmatch'] = true;
                 header("location: /flipkart-clone/");
             }
         }
     }
 }
-
-
-
-

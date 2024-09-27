@@ -7,8 +7,8 @@
     <title>Flipkart-Clone</title>
 </head>
 <?php
-    include('../partials/links.php'); 
-    include(__DIR__ . "/lsnavbar.php") 
+include('../partials/links.php');
+include(__DIR__ . "/lsnavbar.php")
 
 ?>
 

@@ -323,18 +323,18 @@ include(__DIR__ . "/lsnavbar.php")
             </form>
         </div>
     </div>
-    <script>        
+    <script>
         (() => {
             'use strict';
             const forms = document.querySelectorAll('.needs-validation');
 
             // handle spaces
             function cleanUpInputSpaces() {
-            const inputs = document.querySelectorAll('.handlespace');
-            inputs.forEach(input => {
-                input.value = input.value.trim().replace(/\s+/g, ' ');
-            });
-        }
+                const inputs = document.querySelectorAll('.handlespace');
+                inputs.forEach(input => {
+                    input.value = input.value.trim().replace(/\s+/g, ' ');
+                });
+            }
 
             Array.from(forms).forEach(form => {
                 form.addEventListener('submit', event => {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <body>
     <!-- Modal -->
     <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
@@ -26,7 +27,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var myModal = new bootstrap.Modal(document.getElementById('updateModal'));
-            myModal.show(); 
+            myModal.show();
         });
     </script>
 
@@ -36,4 +37,4 @@
 
 confirm query =
 
-UPDATE `itemdetails` SET `item_brand` = 'Motor', `item_modalname` = 'neo', `item_color` = 'Caneel Bay blue', `item_width` = '75.99mm', `item_weight` = '6.89 mm', `item_ram` = '12', `item_storage` = '256', `item_inch` = '6.75 inch', `item_display` = 'Full HD+ pOLED Display ', `item_protection` = 'Gorila glass 34', `item_charger` = '68' WHERE `itemdetails`.`itemdetails_id` = 6; 
+UPDATE `itemdetails` SET `item_brand` = 'Motor', `item_modalname` = 'neo', `item_color` = 'Caneel Bay blue', `item_width` = '75.99mm', `item_weight` = '6.89 mm', `item_ram` = '12', `item_storage` = '256', `item_inch` = '6.75 inch', `item_display` = 'Full HD+ pOLED Display ', `item_protection` = 'Gorila glass 34', `item_charger` = '68' WHERE `itemdetails`.`itemdetails_id` = 6;

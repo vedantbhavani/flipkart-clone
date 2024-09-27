@@ -1,5 +1,5 @@
 <?php
-require(__DIR__ ."/dbconnect.php");
+require(__DIR__ . "/dbconnect.php");
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -22,7 +22,7 @@ if ($method == "POST") {
         $row = mysqli_fetch_assoc($itemresult);
         if ($row && $row['item_category'] == $item_category) {
             echo "This is already chosen";
-            header("Location: " .__DIR__ );
+            header("Location: " . __DIR__);
         } else {
             if (isset($_FILES['item_image'])) {
                 $item_image = $_FILES['item_image']['name'];

@@ -5,7 +5,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="d-flex my-auto" action="./handlesearch.php" method="get" role="search">
+            <form class="d-flex my-auto" action="./handlesearch.php" method="get" role="search">
                 <input class="form-control me-2 bg-primary-subtle" name="search" style="width: 50vw;" type="search" placeholder="Search" aria-label="Search">
             </form>
         </div>
@@ -18,7 +18,7 @@
                             <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li class="d-flex"><a class="dropdown-item" href="./signup.php">New Coustomer?  Signup</a></li>
+                            <li class="d-flex"><a class="dropdown-item" href="./signup.php">New Coustomer? Signup</a></li>
                             <hr>
                             <li><a class="dropdown-item" type="button">Add Category</a></li>
                             <!-- <li><a class="dropdown-item" href="addcategory.php">Add Category</a></li> -->

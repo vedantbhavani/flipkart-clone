@@ -17,9 +17,9 @@
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         1. LOGIN
                     </button>
-                    </h2>
-                    <?php
-                    if (session_status() === PHP_SESSION_NONE) {
+                </h2>
+                <?php
+                if (session_status() === PHP_SESSION_NONE) {
                     session_start();
                 }
                 require(__DIR__ . '../partials/dbconnect.php');
@@ -33,18 +33,18 @@
                     $loggedin = false;
                 }
                 if ($loggedin) {
-                echo'
+                    echo '
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#checkoutAccordion">
                     <div class="accordion-body">
-                        <p><strong>Name:</strong>'.$username.'</p>
+                        <p><strong>Name:</strong>' . $username . '</p>
                         <p><strong>Number:</strong> Vedant Bhavani</p>
                         <button class="continue-btn btn btn-primary" data-next="headingTwo">Continue Checkout</button>
                     </div>
                 </div>
             </div>
             ';
-            }
-            ?>
+                }
+                ?>
             </div>
             <!-- Delivery Address Section (Initially hidden) -->
             <div class="accordion-item">

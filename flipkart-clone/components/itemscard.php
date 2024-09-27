@@ -32,7 +32,7 @@
             if (isset($items[0])) {
                 $item = $items[0];
                 echo '
-                <a href="./components/inneritem.php?category='.$category.'&name='.$item["item_name"].'" class="text-decoration-none border-end align-content-center" style="height:100%; width: 55%;">
+                <a href="./components/inneritem.php?category=' . $category . '&name=' . $item["item_name"] . '" class="text-decoration-none border-end align-content-center" style="height:100%; width: 55%;">
                     <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top object-fit-cover d-block mx-auto " transition: transform 0.3s ease;"
                     style="width:95%"
                     onmouseover="this.style.transform=\'scale(1.05)\';" 
@@ -59,7 +59,7 @@
             if (isset($items[1])) {
                 $item = $items[1];
                 echo '
-                <a href="./components/inneritem.php?category='.$category.'&name='.$item["item_name"].'" class="text-decoration-none card border-0 border-bottom align-content-center rounded-0" style="width: 100%; height: 50%;">
+                <a href="./components/inneritem.php?category=' . $category . '&name=' . $item["item_name"] . '" class="text-decoration-none card border-0 border-bottom align-content-center rounded-0" style="width: 100%; height: 50%;">
                     <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top mx-auto my-4" style="width: 82%; height: 100%; object-fit:cover; transition: transform 0.3s ease;" 
                     onmouseover="this.style.transform=\'scale(1.06)\';" 
                     onmouseout="this.style.transform=\'scale(1)\';" 
@@ -82,7 +82,7 @@
             if (isset($items[2])) {
                 $item = $items[2];
                 echo '
-                <a href="./components/inneritem.php?category='.$category.'&name='.$item["item_name"].'" class="text-decoration-none card border-0 align-content-center rounded-0" style="width: 100%; height: 50%;">
+                <a href="./components/inneritem.php?category=' . $category . '&name=' . $item["item_name"] . '" class="text-decoration-none card border-0 align-content-center rounded-0" style="width: 100%; height: 50%;">
                     <img src="./uploaded_images/' . $item["item_image"] . '" class="card-img-top mx-auto my-4" style="width: 80%; height: 100%; object-fit:cover; transition: transform 0.3s ease;" 
                     onmouseover="this.style.transform=\'scale(1.06)\';" 
                     onmouseout="this.style.transform=\'scale(1)\';" 
